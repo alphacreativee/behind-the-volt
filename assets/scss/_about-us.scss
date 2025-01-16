@@ -1,5 +1,9 @@
 .about-us {
   padding-top: 140px;
+  background-image: url("../images/img-use/bg_about_us.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top left;
   &__content {
     text-align: center;
     margin-bottom: 64px;
@@ -17,6 +21,13 @@
     gap: 24px;
   }
   &__item {
+    position: relative;
+    &--line {
+      left: 100px;
+      position: absolute;
+      top: 35px;
+      z-index: 2;
+    }
     &--icon {
       width: 64px;
       height: 74px;
@@ -26,6 +37,24 @@
       margin-bottom: 20px;
     }
     &--desc {
+      max-width: 375px;
+      width: 100%;
+      .shape-left {
+        height: 104px;
+        width: 50px;
+        clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        shape-outside: polygon(0 0, 0% 100%, 100% 100%);
+        float: left;
+        background-color: var(--color-black);
+      }
+      .shape-right {
+        height: 104px;
+        width: 60px;
+        clip-path: polygon(0 0, 100% 100%, 100% 0);
+        shape-outside: polygon(0 0, 100% 100%, 100% 0);
+        float: right;
+        background-color: var(--color-black);
+      }
     }
   }
 }
