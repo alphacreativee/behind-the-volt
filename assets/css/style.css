@@ -1,0 +1,281 @@
+:root {
+  --color-primary: #00ffff;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-blur: #374151;
+  --color-white-opacity: rgba(255, 255, 255, 0.5);
+  --font-primary: "Space Grotesk", sans-serif;
+  --font-secondary: "Power Grotesk", sans-serif;
+}
+
+@property --r {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.h0-f {
+  font-family: var(--font-secondary);
+  font-size: 72px;
+  line-height: 82px;
+  font-weight: 900;
+}
+
+.h1-f {
+  font-family: var(--font-primary);
+  font-size: 64px;
+  line-height: 72px;
+  font-weight: normal;
+}
+
+.h2-f {
+  font-family: var(--font-secondary);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.h3-f {
+  font-family: var(--font-secondary);
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: normal;
+}
+
+.b1-f {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.button-f {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-black {
+  color: var(--color-black);
+}
+
+.color-white {
+  color: var(--color-white);
+}
+
+.color-white-opacity {
+  color: var(--color-white-opacity);
+}
+
+.gap-32 {
+  gap: 32px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+body {
+  background-color: var(--color-black);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.button-wrapper {
+  display: inline-block;
+  padding: 13px 36px;
+  border-radius: 36px;
+  position: relative;
+  background: conic-gradient(from var(--r), #080e1d 0%, #212b3a 80%);
+  animation: rotating 3s linear infinite;
+  height: 52px;
+  width: 170px;
+  display: block;
+}
+
+.button-wrapper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--color-black);
+  inset: 2px;
+  border-radius: 36px;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.button-wrapper a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  white-space: nowrap;
+  transition: all 0.4s;
+}
+
+.button-wrapper:hover a {
+  color: var(--color-primary);
+}
+
+.button-wrapper:hover::after {
+  opacity: 0.5;
+}
+
+@keyframes rotating {
+  0% {
+    --r: 0deg;
+  }
+  100% {
+    --r: 360deg;
+  }
+}
+.spacing-2xl {
+  height: 140px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.header__container {
+  padding: 16px 24px;
+}
+.header__logo {
+  display: block;
+  width: auto;
+  height: 52px;
+}
+.header__menu ul {
+  padding: 14px 24px;
+  border-radius: 26px;
+  background-color: var(--color-blur);
+}
+
+.banner-hero__container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.banner-hero__container video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100vh;
+}
+.banner-hero__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.banner-hero__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-white);
+}
+.banner-hero__content h2 {
+  font-family: var(--font-primary);
+  font-size: 50px;
+  line-height: 64px;
+  font-weight: 400;
+}
+.banner-hero__content h2 span {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.about-us {
+  padding-top: 140px;
+}
+.about-us__content {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.about-us__sub {
+  margin-bottom: 16px;
+}
+.about-us__title {
+  margin-bottom: 40px;
+}
+.about-us__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 24px;
+  gap: 24px;
+}
+.about-us__item--icon {
+  width: 64px;
+  height: 74px;
+  margin-bottom: 30px;
+}
+.about-us__item--title {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

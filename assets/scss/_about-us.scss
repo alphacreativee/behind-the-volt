@@ -1,0 +1,31 @@
+.about-us {
+  padding-top: 140px;
+  &__content {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  &__sub {
+    margin-bottom: 16px;
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 24px;
+    gap: 24px;
+  }
+  &__item {
+    &--icon {
+      width: 64px;
+      height: 74px;
+      margin-bottom: 30px;
+    }
+    &--title {
+      margin-bottom: 20px;
+    }
+    &--desc {
+    }
+  }
+}

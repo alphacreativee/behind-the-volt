@@ -1,0 +1,22 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  &__container {
+    padding: 16px 24px;
+  }
+  &__logo {
+    display: block;
+    width: auto;
+    height: 52px;
+  }
+  &__menu {
+    ul {
+      padding: 14px 24px;
+      border-radius: 26px;
+      background-color: var(--color-blur);
+    }
+  }
+}
