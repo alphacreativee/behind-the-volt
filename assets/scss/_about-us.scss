@@ -1,9 +1,6 @@
 .about-us {
   padding-top: 140px;
-  background-image: url("../images/img-use/bg_about_us.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top left;
+
   &__content {
     text-align: center;
     margin-bottom: 64px;
@@ -12,49 +9,68 @@
     margin-bottom: 16px;
   }
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 0 24px;
-    gap: 24px;
+    padding: 0 40px;
   }
   &__item {
     position: relative;
-    &--line {
-      left: 100px;
-      position: absolute;
-      top: 35px;
+    overflow: hidden;
+
+    .box{
+      padding: 80px;
+      background-color: black;
       z-index: 2;
+      position: relative;
+      /* border: 2px solid transparent; */
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      margin: 2px;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      background: linear-gradient(
+			to bottom,
+			transparent,
+			var(--color-primary)
+		  );
+      height: 40%;
+      width: 200%;
+    }
+    
+    &:hover{
+      &::after{
+        animation: rotate-effect 6s linear infinite;
+      }
+    }
+
+    @keyframes rotate-effect {
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }    
+
     &--icon {
       width: 64px;
       height: 74px;
       margin-bottom: 30px;
     }
+
     &--title {
       margin-bottom: 20px;
     }
+
     &--desc {
       max-width: 375px;
       width: 100%;
-      .shape-left {
-        height: 104px;
-        width: 50px;
-        clip-path: polygon(0 0, 0% 100%, 100% 100%);
-        shape-outside: polygon(0 0, 0% 100%, 100% 100%);
-        float: left;
-        background-color: var(--color-black);
-      }
-      .shape-right {
-        height: 104px;
-        width: 60px;
-        clip-path: polygon(0 0, 100% 100%, 100% 0);
-        shape-outside: polygon(0 0, 100% 100%, 100% 0);
-        float: right;
-        background-color: var(--color-black);
-      }
     }
   }
 }

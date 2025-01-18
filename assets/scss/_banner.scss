@@ -24,14 +24,36 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: var(--color-white);
+    width: 65%;
+
     h2 {
       font-family: var(--font-primary);
-      font-size: 50px;
-      line-height: 64px;
+      font-size: 64px;
+      line-height: 72px;
       font-weight: 400;
+      overflow: hidden;
+      background-image: linear-gradient(
+        109.6deg, 
+        #FFF 0%,               /* Màu trắng bắt đầu từ 0% */
+        #FFF 35%,              /* Duy trì màu trắng đến 35% */
+        var(--color-primary) 40%, /* Màu xanh bắt đầu từ 45% */
+        var(--color-primary) 55%, /* Kết thúc màu xanh tại 55% */
+        #FFF 65%,              /* Màu trắng quay lại từ 65% */
+        #FFF 100%              /* Kết thúc với màu trắng */
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+
       span {
         color: var(--color-primary);
         font-weight: bold;
+      }
+
+      br{
+        height: 0;
       }
     }
   }
