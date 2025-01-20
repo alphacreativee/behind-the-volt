@@ -1,60 +1,71 @@
-const $cards = document.querySelectorAll(".about-us__item");
+"use strict";
+$ = jQuery;
 
-function rotateToMouse(e) {
-  const bounds = this.getBoundingClientRect();
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-  const leftX = mouseX - bounds.x;
-  const topY = mouseY - bounds.y;
-  const center = {
-    x: leftX - bounds.width / 2,
-    y: topY - bounds.height / 2,
-  };
-  const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
-
-  this.style.transform = `
-      rotate3d(
-        ${center.y / 100},
-        ${-center.x / 100},
-        0,
-        ${Math.log(distance) * 2}deg
-      )
-    `;
-
-  const glow = this.querySelector(".glow");
-  if (glow) {
-    glow.style.backgroundImage = `
-      radial-gradient(
-        circle at
-        ${center.x * 2 + bounds.width / 2}px
-        ${center.y * 2 + bounds.height / 2}px,
-        #ffffff55,
-        #0000000f
-      )
-    `;
-  }
-}
-
-$cards.forEach((card) => {
-  card.addEventListener("mouseenter", function () {
-    const handleMouseMove = rotateToMouse.bind(this);
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    this.addEventListener(
-      "mouseleave",
-      function () {
-        document.removeEventListener("mousemove", handleMouseMove);
-        this.style.transform = "";
-        const glow = this.querySelector(".glow");
-        if (glow) {
-          glow.style.backgroundImage = "";
-        }
-      },
-      { once: true }
-    );
-  });
+$(document).ready(function () {
+  animateCard3D();
 });
+
+function animateCard3D() {
+  var limits = 5.0;
+  $(".about-us__item").mousemove(function (e) {
+    var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left; //x position within the element.
+    var y = e.clientY - rect.top; //y position within the element.
+    var offsetX = x / rect.width;
+    var offsetY = y / rect.height;
+
+    var rotateY = offsetX * (limits * 2) - limits;
+    var rotateX = offsetY * (limits * 2) - limits;
+
+    var shadowOffsetX = offsetX * 32 - 16;
+    var shadowOffsetY = offsetY * 32 - 16;
+
+    $(this).css({
+      "box-shadow":
+        (1 / 6) * -shadowOffsetX +
+        "px " +
+        (1 / 6) * -shadowOffsetY +
+        "px 3px rgba(0, 0, 0, 0.051), " +
+        (2 / 6) * -shadowOffsetX +
+        "px " +
+        (2 / 6) * -shadowOffsetY +
+        "px 7.2px rgba(0, 0, 0, 0.073), " +
+        (3 / 6) * -shadowOffsetX +
+        "px " +
+        (3 / 6) * -shadowOffsetY +
+        "px 13.6px rgba(0, 0, 0, 0.09), " +
+        (4 / 6) * -shadowOffsetX +
+        "px " +
+        (4 / 6) * -shadowOffsetY +
+        "px 24.3px rgba(0, 0, 0, 0.107), " +
+        (5 / 6) * -shadowOffsetX +
+        "px " +
+        (5 / 6) * -shadowOffsetY +
+        "px 45.5px rgba(0, 0, 0, 0.129), " +
+        -shadowOffsetX +
+        "px " +
+        -shadowOffsetY +
+        "px 109px rgba(0, 0, 0, 0.18)",
+      transform:
+        "perspective(1000px) rotateX(" +
+        -rotateX +
+        "deg) rotateY(" +
+        rotateY +
+        "deg)"
+    });
+
+    var glarePos = rotateX + rotateY + 90;
+    $(this)
+      .children()
+      .children()
+      .css("left", glarePos + "%");
+  });
+
+  $(".about-us__item").mouseleave(function (e) {
+    $(".about-us__item").css({"box-shadow": "0px 0px 3px rgba(0, 0, 0, 0.051), 0px 0px 7.2px rgba(0, 0, 0, 0.073), 0px 0px 13.6px rgba(0, 0, 0, 0.09), 0px 0px 24.3px rgba(0, 0, 0, 0.107), 0px 0px 45.5px rgba(0, 0, 0, 0.129), 0px 0px 109px rgba(0, 0, 0, 0.18)", "transform": "scale(1.0)"});
+    $(".glare").css("left", "100%");
+  });
+}
 
 // shooting star
 const shootingStar = document.querySelectorAll(".shooting-star");
