@@ -8,7 +8,7 @@ function rotateToMouse(e) {
   const topY = mouseY - bounds.y;
   const center = {
     x: leftX - bounds.width / 2,
-    y: topY - bounds.height / 2
+    y: topY - bounds.height / 2,
   };
   const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
 
@@ -78,3 +78,25 @@ shootingStar.forEach((element, index) => {
     element.appendChild(speedLine);
   }
 });
+
+document
+  .querySelector(".banner-hero__content h2")
+  .addEventListener("mousemove", (event) => {
+    const textElement = event.currentTarget;
+    const rect = textElement.getBoundingClientRect();
+
+    // Tính toán vị trí chuột theo tỷ lệ phần trăm
+    const xPercent = ((event.clientX - rect.left) / rect.width) * 100;
+    const yPercent = ((event.clientY - rect.top) / rect.height) * 100;
+
+    // Cập nhật background-position
+    textElement.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+  });
+
+// Reset background-position khi chuột rời
+// document
+//   .querySelector(".banner-hero__content h2")
+//   .addEventListener("mouseleave", (event) => {
+//     const textElement = event.currentTarget;
+//     textElement.style.backgroundPosition = "center";
+//   });
