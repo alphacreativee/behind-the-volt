@@ -94,9 +94,9 @@ document
   });
 
 // Reset background-position khi chuột rời
-// document
-//   .querySelector(".banner-hero__content h2")
-//   .addEventListener("mouseleave", (event) => {
-//     const textElement = event.currentTarget;
-//     textElement.style.backgroundPosition = "center";
-//   });
+document
+  .querySelector(".banner-hero__content h2")
+  .addEventListener("mouseleave", (event) => {
+    const textElement = event.currentTarget;
+    textElement.style.backgroundPosition = "center";
+  });
