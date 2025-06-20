@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #00ffff;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --font-heading: "", sans-serif;
+  --font-body: "", sans-serif;
+}
+.color-primary {
+  color: var(--color-primary);
+}
+.color-white {
+  color: var(--color-white);
+}
+.color-black {
+  color: var(--color-black);
+}
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
