@@ -53,7 +53,7 @@ function animationText() {
         y: 10,
         willChange: "filter, transform",
         opacity: 0,
-        skewX: "-5deg",
+        skewX: "-3deg",
       },
       {
         ease: "power3.out",
@@ -62,11 +62,55 @@ function animationText() {
         skewX: "0deg",
         stagger: 0.05,
         opacity: 1,
-        duration: 1.5,
+        duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: "top center",
-          // markers: true,
+          start: "top 60%",
+        },
+      }
+    );
+  });
+  gsap.utils.toArray(".effect-description").forEach((description) => {
+    const splitDescription = new SplitText(description, {
+      type: "lines",
+      linesClass: "line",
+      mask: "lines",
+    });
+    gsap.fromTo(
+      splitDescription.lines,
+      {
+        y: 40,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 2,
+        ease: "power3.out",
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: description,
+          start: "top 60%",
+        },
+      }
+    );
+  });
+  gsap.utils.toArray(".effect-fade-up").forEach((element) => {
+    const start = parseFloat(element.dataset.start) || center;
+    gsap.fromTo(
+      element,
+      {
+        y: 20,
+        opacity: 0,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 1,
+        opacity: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: `top ${start}%`,
         },
       }
     );
