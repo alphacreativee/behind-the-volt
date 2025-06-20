@@ -1,5 +1,13 @@
 import { preloadImages } from "../../libs/utils.js";
+const lenis = new Lenis();
 
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 function footer() {
   const canvas = document.getElementById("footerLine");
   if (!canvas) {
@@ -28,6 +36,41 @@ function footer() {
   ctx.lineTo(w, 40); // ngang tới cuối
 
   ctx.stroke();
+}
+function animationText() {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.utils.toArray(".effect-heading").forEach((heading) => {
+    const splitText = new SplitText(heading, {
+      type: "words, chars",
+      charsClass: "char",
+      wordsClass: "word",
+    });
+
+    gsap.fromTo(
+      splitText.chars,
+      {
+        filter: "blur(10px)",
+        y: 10,
+        willChange: "filter, transform",
+        opacity: 0,
+        skewX: "-5deg",
+      },
+      {
+        ease: "power3.out",
+        filter: "blur(0px)",
+        y: 0,
+        skewX: "0deg",
+        stagger: 0.05,
+        opacity: 1,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: heading,
+          start: "top center",
+          // markers: true,
+        },
+      }
+    );
+  });
 }
 
 function magicCursor() {
@@ -87,6 +130,7 @@ function magicCursor() {
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  animationText();
   footer();
   magicCursor();
 };
