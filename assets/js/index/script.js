@@ -1,6 +1,4 @@
 import { preloadImages } from "../../libs/utils.js";
-let lenis;
-Splitting();
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
