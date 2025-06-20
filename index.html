@@ -28,6 +28,13 @@
     <!-- end link custom css page -->
   </head>
   <body>
+    <div class="magic-cursor">
+      <div class="cursor">
+        <div class="text left text-uppercase">Go!</div>
+        <div class="text right">Stand by</div>
+      </div>
+    </div>
+
     <!-- layout -->
     <header class="header position-fixed top-0 start-0 end-0">
       <div class="container-fluid p-0">
@@ -138,7 +145,11 @@
                   placeholder="Enter your email"
                   class="b1-font color-white"
                 />
-                <button type="submit" class="b1-font color-white">
+                <button
+                  type="submit"
+                  class="b1-font color-white"
+                  data-cursor-text
+                >
                   Subscribe
                 </button>
               </form>
@@ -147,6 +158,7 @@
           <div
             class="footer-bottom d-flex align-items-center justify-content-between"
           >
+            <div class="footer-bottom-line"></div>
             <div class="footer-policy">
               <ul class="menu">
                 <li>

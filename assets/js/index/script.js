@@ -117,10 +117,66 @@ function animationText() {
   });
 }
 
+function magicCursor() {
+  var circle = document.querySelector(".magic-cursor");
+
+  gsap.set(circle, {
+    xPercent: -50,
+    yPercent: -50,
+    opacity: 0
+  });
+
+  let mouseX = 0,
+    mouseY = 0;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    gsap.to(circle, {
+      x: mouseX,
+      y: mouseY,
+      opacity: 1,
+      duration: 0.1
+    });
+  });
+
+  document.addEventListener("mouseout", function (e) {
+    if (!e.relatedTarget && !e.toElement) {
+      // Chuột đã ra khỏi cửa sổ
+      gsap.to(circle, {
+        opacity: 0,
+        duration: 0.2
+      });
+    }
+  });
+
+  document.addEventListener("mouseover", function () {
+    gsap.to(circle, {
+      opacity: 1,
+      duration: 0.2
+    });
+  });
+
+  const items = document.querySelectorAll("[data-cursor-text]");
+  var cursorDot = document.querySelector(".magic-cursor .cursor");
+
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      cursorDot.classList.add("active");
+    });
+
+    item.addEventListener("mouseleave", () => {
+      cursorDot.classList.remove("active");
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
   footer();
+  magicCursor();
 };
 preloadImages("img").then(() => {
   init();
