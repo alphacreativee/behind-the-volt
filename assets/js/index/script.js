@@ -190,12 +190,20 @@ function magicCursor() {
     });
   });
 }
-
+function header() {
+  const btnHambuger = document.querySelector(".header-hambuger");
+  const headerMenu = document.querySelector(".header-menu");
+  btnHambuger.addEventListener("click", () => {
+    btnHambuger.classList.toggle("active");
+    headerMenu.classList.toggle("active");
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
   footer();
   magicCursor();
+  header();
 };
 preloadImages("img").then(() => {
   init();
