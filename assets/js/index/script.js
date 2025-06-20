@@ -115,6 +115,25 @@ function animationText() {
       }
     );
   });
+  gsap.utils.toArray(".effect-karaoke").forEach((karaoke) => {
+    const splitKaraoke = new SplitText(karaoke, {
+      type: " chars",
+      charsClass: "char",
+    });
+    gsap.to(splitKaraoke.chars, {
+      color: "#00ffff",
+      duration: 0.2,
+      stagger: 0.05,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: karaoke,
+        start: "top 90%",
+        end: "top 45%",
+        // markers: true,
+        scrub: true,
+      },
+    });
+  });
 }
 
 function magicCursor() {
@@ -123,7 +142,7 @@ function magicCursor() {
   gsap.set(circle, {
     xPercent: -50,
     yPercent: -50,
-    opacity: 0
+    opacity: 0,
   });
 
   let mouseX = 0,
@@ -137,7 +156,7 @@ function magicCursor() {
       x: mouseX,
       y: mouseY,
       opacity: 1,
-      duration: 0.1
+      duration: 0.1,
     });
   });
 
@@ -146,7 +165,7 @@ function magicCursor() {
       // Chuột đã ra khỏi cửa sổ
       gsap.to(circle, {
         opacity: 0,
-        duration: 0.2
+        duration: 0.2,
       });
     }
   });
@@ -154,7 +173,7 @@ function magicCursor() {
   document.addEventListener("mouseover", function () {
     gsap.to(circle, {
       opacity: 1,
-      duration: 0.2
+      duration: 0.2,
     });
   });
 
