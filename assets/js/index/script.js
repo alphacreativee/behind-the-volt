@@ -53,7 +53,7 @@ function animationText() {
         y: 10,
         willChange: "filter, transform",
         opacity: 0,
-        skewX: "-5deg",
+        skewX: "-3deg",
       },
       {
         ease: "power3.out",
@@ -62,14 +62,77 @@ function animationText() {
         skewX: "0deg",
         stagger: 0.05,
         opacity: 1,
-        duration: 1.5,
+        duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: "top center",
-          // markers: true,
+          start: "top 60%",
         },
       }
     );
+  });
+  gsap.utils.toArray(".effect-description").forEach((description) => {
+    const splitDescription = new SplitText(description, {
+      type: "lines",
+      linesClass: "line",
+      mask: "lines",
+    });
+    gsap.fromTo(
+      splitDescription.lines,
+      {
+        y: 40,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 2,
+        ease: "power3.out",
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: description,
+          start: "top 60%",
+        },
+      }
+    );
+  });
+  gsap.utils.toArray(".effect-fade-up").forEach((element) => {
+    const start = parseFloat(element.dataset.start) || center;
+    gsap.fromTo(
+      element,
+      {
+        y: 20,
+        opacity: 0,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 1,
+        opacity: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: `top ${start}%`,
+        },
+      }
+    );
+  });
+  gsap.utils.toArray(".effect-karaoke").forEach((karaoke) => {
+    const splitKaraoke = new SplitText(karaoke, {
+      type: " chars",
+      charsClass: "char",
+    });
+    gsap.to(splitKaraoke.chars, {
+      color: "#00ffff",
+      duration: 0.2,
+      stagger: 0.05,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: karaoke,
+        start: "top 90%",
+        end: "top 45%",
+        // markers: true,
+        scrub: true,
+      },
+    });
   });
 }
 
@@ -79,7 +142,7 @@ function magicCursor() {
   gsap.set(circle, {
     xPercent: -50,
     yPercent: -50,
-    opacity: 0
+    opacity: 0,
   });
 
   let mouseX = 0,
@@ -93,7 +156,7 @@ function magicCursor() {
       x: mouseX,
       y: mouseY,
       opacity: 1,
-      duration: 0.1
+      duration: 0.1,
     });
   });
 
@@ -102,7 +165,7 @@ function magicCursor() {
       // Chuột đã ra khỏi cửa sổ
       gsap.to(circle, {
         opacity: 0,
-        duration: 0.2
+        duration: 0.2,
       });
     }
   });
@@ -110,7 +173,7 @@ function magicCursor() {
   document.addEventListener("mouseover", function () {
     gsap.to(circle, {
       opacity: 1,
-      duration: 0.2
+      duration: 0.2,
     });
   });
 
