@@ -1,0 +1,49 @@
+.our-services {
+  .services {
+    &-wrapper {
+      width: 100%;
+      max-width: 1055px;
+      margin: 0 auto;
+
+      .title {
+        width: max-content;
+        max-width: 100%;
+        position: relative;
+        margin: 0 auto;
+
+        img {
+          width: 590px;
+          height: auto;
+        }
+
+        .text {
+          left: 45px;
+          bottom: 20px;
+          position: absolute;
+          width: max-content;
+        }
+      }
+
+      .desc {
+        font-size: 30px;
+        line-height: 48px;
+        margin-top: 80px;
+      }
+    }
+
+    &-list {
+      margin-top: 170px;
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .card {
+        background-color: antiquewhite;
+        height: 460px;
+      }
+    }
+  }
+}
