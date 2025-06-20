@@ -2,8 +2,8 @@
   --color-primary: #00ffff;
   --color-white: #ffffff;
   --color-black: #000000;
-  --font-heading: "", sans-serif;
-  --font-body: "", sans-serif;
+  --font-heading: "Power Grotesk", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
 }
 .color-primary {
   color: var(--color-primary);
@@ -20,6 +20,11 @@
 
 .font-body {
   font-family: var(--font-body);
+}
+.h1-font {
+  font-size: 74px;
+  line-height: 66px;
+  font-weight: bold;
 }
 
 .btn-font {
