@@ -5,7 +5,6 @@
   &-container {
     width: 100%;
     height: calc(100vh);
-    position: relative;
     --size: 300px;
     --height-line: 2px;
     &::before {
@@ -13,7 +12,6 @@
       position: absolute;
       bottom: 0;
       right: 0;
-
       width: calc(100% - 258px);
       width: calc((100% - calc(var(--size) - 42px)));
       height: var(--height-line);
@@ -63,6 +61,16 @@
     height: 28px;
     background-color: var(--color-black);
     z-index: 1;
+  }
+  &-word {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 28px;
+    color: var(--color-white);
+    writing-mode: sideways-lr;
+    height: calc(100vh - 28px);
+    // mix-blend-mode: difference;
   }
 }
 .spacing {
