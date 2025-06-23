@@ -197,6 +197,16 @@ function header() {
     btnHambuger.classList.toggle("active");
     headerMenu.classList.toggle("active");
   });
+  // effect scroll header
+
+  gsap.to(".header", {
+    scrollTrigger: {
+      trigger: "body",
+      start: "top+=100 top",
+      toggleClass: { targets: ".header", className: "scrolled" },
+      once: false,
+    },
+  });
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
