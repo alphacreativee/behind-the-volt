@@ -197,12 +197,6 @@ function header() {
     btnHambuger.classList.toggle("active");
     headerMenu.classList.toggle("active");
   });
-  document.addEventListener("click", (e) => {
-    if (!btnHambuger.contains(e.target) && !headerMenu.contains(e.target)) {
-      btnHambuger.classList.remove("active");
-      headerMenu.classList.remove("active");
-    }
-  });
   // effect scroll header
 
   gsap.to(".header", {
