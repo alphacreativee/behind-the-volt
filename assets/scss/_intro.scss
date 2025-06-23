@@ -1,17 +1,13 @@
 .intro {
+  padding: 0 80px;
   &-container {
-    padding: 0 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 48px 0;
   }
-  &-title {
-    text-align: center;
-  }
+
   &-description {
-    max-width: 700px;
+    max-width: 100%;
     width: 100%;
-    text-align: center;
   }
 }
