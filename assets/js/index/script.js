@@ -119,6 +119,7 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: `top ${start}%`,
+          // markers: true,
         },
       }
     );
