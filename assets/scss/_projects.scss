@@ -51,7 +51,12 @@
     justify-content: flex-end;
     flex-direction: column;
     gap: 24px;
-    padding: 45px;
+    padding: 80px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(0, 0, 0, 1)
+    );
   }
   &-description {
     position: relative;

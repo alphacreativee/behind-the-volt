@@ -3,6 +3,7 @@ import { preloadImages } from "../../libs/utils.js";
 function projectScroll() {
   gsap.registerPlugin(ScrollTrigger, SplitText);
   const projects = gsap.utils.toArray(".project");
+
   const introProject = projects[0];
   const titles = gsap.utils.toArray(".project-title h2");
   titles.forEach((title) => {
@@ -31,21 +32,20 @@ function projectScroll() {
       filter: "blur(0px)",
       y: 0,
       skewX: "0deg",
-      stagger: 0.05,
+      // stagger: 0.05,
       opacity: 1,
     });
     gsap.to(description, {
       y: 0,
       opacity: 1,
       duration: 0.75,
-      delay: 0.1,
       ease: "power4.out",
     });
     gsap.to(button, {
       y: 0,
       opacity: 1,
       duration: 0.75,
-      delay: 0.2,
+      delay: 0.1,
       ease: "power4.out",
     });
   }
@@ -74,11 +74,12 @@ function projectScroll() {
   const titleChars = introProject.querySelectorAll(".char span");
   const description = introProject.querySelector(".project-description");
   const button = introProject.querySelector(".project-button");
+  const endPonitValue = (projects.length - 1) * 100 + "vh";
+  console.log(endPonitValue);
   ScrollTrigger.create({
     trigger: introProject,
     start: "top top",
-    end: "+=300vh",
-    // markers: true,
+    end: `+=${endPonitValue}`,
     onUpdate: (self) => {
       const progress = self.progress;
       const imgScale = 0.5 + progress * 0.5;
@@ -123,7 +124,7 @@ function projectScroll() {
         end: "top top",
         onUpdate: (self) => {
           const progress = self.progress;
-          gsap.set(projectImgWrapper, {
+          gsap.set(projectWrapper, {
             scale: 1 - progress * 0.15,
             opacity: 1 - progress,
           });
@@ -158,11 +159,11 @@ function projectScroll() {
     const projectButton = project.querySelector(".project-button");
     ScrollTrigger.create({
       trigger: project,
-      start: "top 20%",
-      markers: true,
+      start: "top top",
+      // markers: true,
       onEnter: () =>
         animateContentIn(projectTitleChars, projectDescription, projectButton),
-      onLeave: () =>
+      onLeaveBack: () =>
         animateContentOut(projectTitleChars, projectDescription, projectButton),
     });
   });
