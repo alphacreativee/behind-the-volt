@@ -221,7 +221,7 @@ function magicCursor() {
     });
   });
 
-  const items = document.querySelectorAll("[data-cursor-text]");
+  const items = document.querySelectorAll("[data-cursor-text],a[href]");
   var cursorDot = document.querySelector(".magic-cursor .cursor");
 
   items.forEach((item) => {
