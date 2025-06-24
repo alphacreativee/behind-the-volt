@@ -76,6 +76,9 @@
     position: relative;
     overflow: hidden;
   }
+  &-bottom {
+    margin-top: 20px;
+  }
   .char span {
     display: inline-block;
     filter: blur(10px);
