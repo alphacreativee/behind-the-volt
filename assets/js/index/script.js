@@ -48,7 +48,7 @@ function animationText() {
     const splitText = new SplitText(heading, {
       type: "words, chars",
       charsClass: "char",
-      wordsClass: "word"
+      wordsClass: "word",
     });
     splitTextInstances.push(splitText);
 
@@ -59,7 +59,7 @@ function animationText() {
         y: 10,
         willChange: "filter, transform",
         opacity: 0,
-        skewX: "-3deg"
+        skewX: "-3deg",
       },
       {
         ease: "power3.out",
@@ -71,8 +71,8 @@ function animationText() {
         duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: "top 60%"
-        }
+          start: "top 60%",
+        },
       }
     );
   });
@@ -80,7 +80,7 @@ function animationText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines"
+      mask: "lines",
     });
     splitTextInstances.push(splitDescription);
 
@@ -88,7 +88,7 @@ function animationText() {
       splitDescription.lines,
       {
         y: 40,
-        willChange: "transform"
+        willChange: "transform",
       },
       {
         y: 0,
@@ -97,8 +97,8 @@ function animationText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: description,
-          start: "top 60%"
-        }
+          start: "top 60%",
+        },
       }
     );
   });
@@ -109,7 +109,7 @@ function animationText() {
       {
         y: 20,
         opacity: 0,
-        willChange: "transform"
+        willChange: "transform",
       },
       {
         y: 0,
@@ -118,8 +118,8 @@ function animationText() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: element,
-          start: `top ${start}%`
-        }
+          start: `top ${start}%`,
+        },
       }
     );
   });
@@ -133,7 +133,7 @@ function animateTextKaraoke() {
     const splitKaraoke = new SplitText(karaoke, {
       type: "words, chars",
       wordsClass: "word",
-      charsClass: "char"
+      charsClass: "char",
     });
 
     gsap.to(splitKaraoke.chars, {
@@ -146,8 +146,8 @@ function animateTextKaraoke() {
         start: "top 90%",
         end: "top 45%",
         // markers: true,
-        scrub: true
-      }
+        scrub: true,
+      },
     });
   });
 }
@@ -161,20 +161,20 @@ function animation() {
       scrollTrigger: {
         trigger: container,
         scrub: true,
-        pin: false
+        pin: false,
         // markers: true
-      }
+      },
     });
 
     tl.fromTo(
       img,
       {
         yPercent: -10,
-        ease: "none"
+        ease: "none",
       },
       {
         yPercent: 10,
-        ease: "none"
+        ease: "none",
       }
     );
   });
@@ -186,7 +186,7 @@ function magicCursor() {
   gsap.set(circle, {
     xPercent: -50,
     yPercent: -50,
-    opacity: 0
+    opacity: 0,
   });
 
   let mouseX = 0,
@@ -200,7 +200,7 @@ function magicCursor() {
       x: mouseX,
       y: mouseY,
       opacity: 1,
-      duration: 0.1
+      duration: 0.1,
     });
   });
 
@@ -209,7 +209,7 @@ function magicCursor() {
       // Chuột đã ra khỏi cửa sổ
       gsap.to(circle, {
         opacity: 0,
-        duration: 0.2
+        duration: 0.2,
       });
     }
   });
@@ -217,7 +217,7 @@ function magicCursor() {
   document.addEventListener("mouseover", function () {
     gsap.to(circle, {
       opacity: 1,
-      duration: 0.2
+      duration: 0.2,
     });
   });
 
@@ -249,8 +249,8 @@ function header() {
       trigger: "body",
       start: "top+=100 top",
       toggleClass: { targets: ".header", className: "scrolled" },
-      once: false
-    }
+      once: false,
+    },
   });
 }
 
@@ -291,7 +291,7 @@ function ourService() {
 
       setTimeout(() => {
         animationText();
-        ScrollTrigger.refresh(true);
+        // ScrollTrigger.refresh(true);
       }, 500);
     });
   }

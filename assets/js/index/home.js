@@ -1,32 +1,5 @@
 import { preloadImages } from "../../libs/utils.js";
 
-function ourService() {
-  if ($(".our-services").length < 1) return;
-
-  const cards = document.querySelectorAll(".our-services .card");
-  cards.forEach((item) => {
-    item.addEventListener("mousemove", startRotate);
-    item.addEventListener("mouseout", stopRotate);
-  });
-
-  function startRotate(event) {
-    const cardItem = this.querySelector(".card-item");
-    const halfHeight = cardItem.offsetHeight / 2;
-    const halfWidth = cardItem.offsetWidth / 2;
-
-    cardItem.style.transform =
-      "rotateX(" +
-      -(event.offsetY - halfHeight) / 30 +
-      "deg) rotateY(" +
-      (event.offsetX - halfWidth) / 15 +
-      "deg)";
-  }
-
-  function stopRotate(event) {
-    const cardItem = this.querySelector(".card-item");
-    cardItem.style.transform = "rotate(0)";
-  }
-}
 function projectScroll() {
   gsap.registerPlugin(ScrollTrigger, SplitText);
   const projects = gsap.utils.toArray(".project");
@@ -151,7 +124,7 @@ function projectScroll() {
         onUpdate: (self) => {
           const progress = self.progress;
           gsap.set(projectImgWrapper, {
-            scale: 1 - progress * 0.25,
+            scale: 1 - progress * 0.15,
             opacity: 1 - progress,
           });
         },
@@ -185,7 +158,7 @@ function projectScroll() {
     const projectButton = project.querySelector(".project-button");
     ScrollTrigger.create({
       trigger: project,
-      start: "top top",
+      start: "top 20%",
       markers: true,
       onEnter: () =>
         animateContentIn(projectTitleChars, projectDescription, projectButton),
@@ -197,7 +170,6 @@ function projectScroll() {
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   projectScroll();
-  ourService();
 };
 preloadImages("img").then(() => {
   init();
