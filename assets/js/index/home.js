@@ -167,7 +167,6 @@ function projectScroll() {
         animateContentOut(projectTitleChars, projectDescription, projectButton),
     });
   });
-  ScrollTrigger.refresh();
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
