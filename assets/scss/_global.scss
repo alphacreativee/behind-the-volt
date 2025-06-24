@@ -150,3 +150,16 @@ html,
     color: var(--color-primary);
   }
 }
+
+.parallax-trigger {
+  overflow: hidden;
+
+  img {
+    height: 120%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    top: -10%;
+    transform-origin: 50% 50%;
+  }
+}

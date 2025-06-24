@@ -197,10 +197,10 @@ function projectScroll() {
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   projectScroll();
+  ourService();
 };
 preloadImages("img").then(() => {
   init();
-  ourService();
 });
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);

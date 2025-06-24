@@ -37,14 +37,20 @@ function footer() {
 
   ctx.stroke();
 }
+
+const splitTextInstances = [];
 function animationText() {
+  splitTextInstances.forEach((instance) => instance.revert());
+  splitTextInstances.length = 0;
+
   gsap.registerPlugin(ScrollTrigger, SplitText);
   gsap.utils.toArray(".effect-heading").forEach((heading) => {
     const splitText = new SplitText(heading, {
       type: "words, chars",
       charsClass: "char",
-      wordsClass: "word",
+      wordsClass: "word"
     });
+    splitTextInstances.push(splitText);
 
     gsap.fromTo(
       splitText.chars,
@@ -53,7 +59,7 @@ function animationText() {
         y: 10,
         willChange: "filter, transform",
         opacity: 0,
-        skewX: "-3deg",
+        skewX: "-3deg"
       },
       {
         ease: "power3.out",
@@ -65,8 +71,8 @@ function animationText() {
         duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: "top 60%",
-        },
+          start: "top 60%"
+        }
       }
     );
   });
@@ -74,13 +80,15 @@ function animationText() {
     const splitDescription = new SplitText(description, {
       type: "lines",
       linesClass: "line",
-      mask: "lines",
+      mask: "lines"
     });
+    splitTextInstances.push(splitDescription);
+
     gsap.fromTo(
       splitDescription.lines,
       {
         y: 40,
-        willChange: "transform",
+        willChange: "transform"
       },
       {
         y: 0,
@@ -89,8 +97,8 @@ function animationText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: description,
-          start: "top 60%",
-        },
+          start: "top 60%"
+        }
       }
     );
   });
@@ -101,7 +109,7 @@ function animationText() {
       {
         y: 20,
         opacity: 0,
-        willChange: "transform",
+        willChange: "transform"
       },
       {
         y: 0,
@@ -110,16 +118,24 @@ function animationText() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: element,
-          start: `top ${start}%`,
-        },
+          start: `top ${start}%`
+        }
       }
     );
   });
+}
+
+function animateTextKaraoke() {
+  if ($(".effect-karaoke").length < 1) return;
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
   gsap.utils.toArray(".effect-karaoke").forEach((karaoke) => {
     const splitKaraoke = new SplitText(karaoke, {
-      type: " chars",
-      charsClass: "char",
+      type: "words, chars",
+      wordsClass: "word",
+      charsClass: "char"
     });
+
     gsap.to(splitKaraoke.chars, {
       color: "#00ffff",
       duration: 0.2,
@@ -130,9 +146,37 @@ function animationText() {
         start: "top 90%",
         end: "top 45%",
         // markers: true,
-        scrub: true,
-      },
+        scrub: true
+      }
     });
+  });
+}
+
+function animation() {
+  gsap.utils.toArray(".parallax-trigger").forEach((container) => {
+    const img = container.querySelector("img");
+    if (!img) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        scrub: true,
+        pin: false
+        // markers: true
+      }
+    });
+
+    tl.fromTo(
+      img,
+      {
+        yPercent: -10,
+        ease: "none"
+      },
+      {
+        yPercent: 10,
+        ease: "none"
+      }
+    );
   });
 }
 
@@ -142,7 +186,7 @@ function magicCursor() {
   gsap.set(circle, {
     xPercent: -50,
     yPercent: -50,
-    opacity: 0,
+    opacity: 0
   });
 
   let mouseX = 0,
@@ -156,7 +200,7 @@ function magicCursor() {
       x: mouseX,
       y: mouseY,
       opacity: 1,
-      duration: 0.1,
+      duration: 0.1
     });
   });
 
@@ -165,7 +209,7 @@ function magicCursor() {
       // Chuột đã ra khỏi cửa sổ
       gsap.to(circle, {
         opacity: 0,
-        duration: 0.2,
+        duration: 0.2
       });
     }
   });
@@ -173,7 +217,7 @@ function magicCursor() {
   document.addEventListener("mouseover", function () {
     gsap.to(circle, {
       opacity: 1,
-      duration: 0.2,
+      duration: 0.2
     });
   });
 
@@ -190,6 +234,7 @@ function magicCursor() {
     });
   });
 }
+
 function header() {
   const btnHambuger = document.querySelector(".header-hambuger");
   const headerMenu = document.querySelector(".header-menu");
@@ -204,16 +249,65 @@ function header() {
       trigger: "body",
       start: "top+=100 top",
       toggleClass: { targets: ".header", className: "scrolled" },
-      once: false,
-    },
+      once: false
+    }
   });
 }
+
+function ourService() {
+  if ($(".our-services").length < 1) return;
+
+  const cards = document.querySelectorAll(".our-services .card");
+  cards.forEach((item) => {
+    item.addEventListener("mousemove", startRotate);
+    item.addEventListener("mouseout", stopRotate);
+  });
+
+  function startRotate(event) {
+    const cardItem = this.querySelector(".card-item");
+    const halfHeight = cardItem.offsetHeight / 2;
+    const halfWidth = cardItem.offsetWidth / 2;
+
+    cardItem.style.transform =
+      "rotateX(" +
+      -(event.offsetY - halfHeight) / 30 +
+      "deg) rotateY(" +
+      (event.offsetX - halfWidth) / 15 +
+      "deg)";
+  }
+
+  function stopRotate(event) {
+    const cardItem = this.querySelector(".card-item");
+    cardItem.style.transform = "rotate(0)";
+  }
+
+  function consultancy() {
+    $(".consultancy .item").on("click", function () {
+      const item = $(this);
+      if (item.hasClass("active")) return;
+
+      $(".consultancy .item").removeClass("active");
+      item.addClass("active");
+
+      setTimeout(() => {
+        animationText();
+        ScrollTrigger.refresh(true);
+      }, 500);
+    });
+  }
+  consultancy();
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
+  animateTextKaraoke();
   footer();
   magicCursor();
   header();
+  ourService();
+  animation();
+  ScrollTrigger.refresh(true);
 };
 preloadImages("img").then(() => {
   init();
