@@ -216,6 +216,9 @@
       animation: moveUpDown 6s linear infinite alternate;
     }
   }
+  &-bottom {
+    margin-top: 80px;
+  }
 }
 
 @keyframes moveUpDown {

@@ -139,13 +139,13 @@ function animateTextKaraoke() {
 
     gsap.to(splitKaraoke.chars, {
       color: "#00ffff",
-      duration: 0.2,
+      duration: 0.3,
       stagger: 0.05,
       ease: "power3.out",
       scrollTrigger: {
         trigger: karaoke,
         start: "top 90%",
-        end: "top 45%",
+        end: "top 40%",
         // markers: true,
         scrub: true,
       },

@@ -169,9 +169,53 @@ function projectScroll() {
   });
   ScrollTrigger.refresh();
 }
+function marquee() {
+  document.querySelectorAll(".marquee-container").forEach((container) => {
+    const content = container.querySelector(".marquee-content");
+    const items = [...container.querySelectorAll(".marquee-item")];
+    const speed = parseFloat(container.getAttribute("data-speed")) || 50;
+
+    // Calculate total width of original content
+    let totalWidth = 0;
+    items.forEach((item) => (totalWidth += item.offsetWidth));
+
+    // Create copies for seamless loop
+    const containerWidth = container.offsetWidth;
+    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 2;
+
+    for (let i = 0; i < copiesNeeded; i++) {
+      items.forEach((item) => {
+        content.appendChild(item.cloneNode(true));
+      });
+    }
+
+    // Setup animation
+    gsap.set(content, {
+      willChange: "transform",
+      force3D: true,
+    });
+
+    const tl = gsap.timeline({ repeat: -1 });
+    tl.fromTo(
+      content,
+      { x: 0 },
+      {
+        x: -totalWidth,
+        duration: totalWidth / speed,
+        ease: "none",
+        force3D: true,
+      }
+    );
+
+    // Hover events
+    container.addEventListener("mouseenter", () => tl.pause());
+    container.addEventListener("mouseleave", () => tl.resume());
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   projectScroll();
+  marquee();
 };
 preloadImages("img").then(() => {
   init();
