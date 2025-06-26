@@ -26,7 +26,13 @@
     height: 40px;
     border-radius: 4px;
     border: 1px solid var(--color-primary);
-
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      background-color: transparent;
+    }
     &.active {
       .header-hambuger-container {
         span {
