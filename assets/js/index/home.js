@@ -82,7 +82,7 @@ function projectScroll() {
     onUpdate: (self) => {
       const progress = self.progress;
       const imgScale = 0.5 + progress * 0.5;
-      const borderRadius = 400 - progress * 375;
+      const borderRadius = 400 - progress * 400;
       const innerImgScale = 1.5 - progress * 0.5;
 
       gsap.set(projectImgWrapper, {
@@ -145,7 +145,7 @@ function projectScroll() {
             scale: 2 - progress,
           });
           gsap.set(imgContainer, {
-            borderRadius: 150 - progress * 125 + "px",
+            borderRadius: 150 - progress * 150 + "px",
           });
         },
       });
@@ -180,7 +180,7 @@ function marquee() {
 
     // Create copies for seamless loop
     const containerWidth = container.offsetWidth;
-    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 2;
+    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 4;
 
     for (let i = 0; i < copiesNeeded; i++) {
       items.forEach((item) => {
@@ -188,23 +188,16 @@ function marquee() {
       });
     }
 
-    // Setup animation
-    gsap.set(content, {
-      willChange: "transform",
-      force3D: true,
-    });
-
+    gsap.set(content, { x: 0, willChange: "transform", force3D: true });
     const tl = gsap.timeline({ repeat: -1 });
-    tl.fromTo(
-      content,
-      { x: 0 },
-      {
-        x: -totalWidth,
-        duration: totalWidth / speed,
-        ease: "none",
-        force3D: true,
-      }
-    );
+    tl.to(content, {
+      x: -totalWidth,
+      duration: totalWidth / speed,
+      ease: "none",
+      modifiers: {
+        x: (x) => `${parseFloat(x) % totalWidth}px`,
+      },
+    });
 
     // Hover events
     container.addEventListener("mouseenter", () => tl.pause());

@@ -139,13 +139,13 @@ function animateTextKaraoke() {
 
     gsap.to(splitKaraoke.chars, {
       color: "#00ffff",
-      duration: 0.3,
+      duration: 0.6,
       stagger: 0.05,
       ease: "power3.out",
       scrollTrigger: {
         trigger: karaoke,
         start: "top 90%",
-        end: "top 40%",
+        end: "top 30%",
         // markers: true,
         scrub: true,
       },
@@ -239,6 +239,7 @@ function magicCursor() {
 function header() {
   const btnHambuger = document.querySelector(".header-hambuger");
   const headerMenu = document.querySelector(".header-menu");
+  const menuSub = document.querySelector("li.menu-item-has-children");
   btnHambuger.addEventListener("click", () => {
     btnHambuger.classList.toggle("active");
     headerMenu.classList.toggle("active");
@@ -248,6 +249,10 @@ function header() {
       btnHambuger.classList.remove("active");
       headerMenu.classList.remove("active");
     }
+  });
+  // mouseenter
+  menuSub.addEventListener("mouseenter", () => {
+    menuSub.classList.add("active");
   });
   // effect scroll header
 

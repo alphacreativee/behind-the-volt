@@ -140,6 +140,20 @@
                   visibility: visible;
                 }
               }
+            }
+            &.active {
+              &::before {
+                background-color: var(--color-white);
+              }
+              & > a {
+                color: var(--color-primary);
+                padding-right: 32px;
+                &::after {
+                  right: 0;
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
               .sub-menu {
                 height: 200px;
                 clip-path: inset(0% 0% 0% 0%);
