@@ -75,7 +75,6 @@ function projectScroll() {
   const description = introProject.querySelector(".project-description");
   const button = introProject.querySelector(".project-button");
   const endPonitValue = (projects.length - 1) * 100 + "vh";
-  console.log(endPonitValue);
   ScrollTrigger.create({
     trigger: introProject,
     start: "top top",
