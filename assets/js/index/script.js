@@ -95,14 +95,10 @@ function animationText() {
         duration: 2,
         ease: "power3.out",
         stagger: 0.05,
-        ...(description.classList.contains("auto-effect")
-          ? {}
-          : {
-              scrollTrigger: {
-                trigger: description,
-                start: "top 60%",
-              },
-            }),
+        scrollTrigger: {
+          trigger: description,
+          start: "top 60%",
+        },
       }
     );
   });
@@ -130,9 +126,10 @@ function animationText() {
     );
   });
 }
+const splitTextInstancesAuto = [];
 function animationTextAuto() {
-  splitTextInstances.forEach((instance) => instance.revert());
-  splitTextInstances.length = 0;
+  splitTextInstancesAuto.forEach((instance) => instance.revert());
+  splitTextInstancesAuto.length = 0;
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
   gsap.utils.toArray(".effect-heading-auto").forEach((heading) => {
@@ -141,7 +138,7 @@ function animationTextAuto() {
       charsClass: "char",
       wordsClass: "word",
     });
-    splitTextInstances.push(splitText);
+    splitTextInstancesAuto.push(splitText);
 
     gsap.fromTo(
       splitText.chars,
@@ -169,7 +166,7 @@ function animationTextAuto() {
       linesClass: "line",
       mask: "lines",
     });
-    splitTextInstances.push(splitDescription);
+    splitTextInstancesAuto.push(splitDescription);
 
     gsap.fromTo(
       splitDescription.lines,
@@ -394,12 +391,30 @@ function ourService() {
   }
   consultancy();
 }
-
+function bannerParallax() {
+  const bannerImg = document.querySelector(".banner picture img");
+  gsap.set(bannerImg, {
+    scale: 1.1,
+    willChange: "transform",
+  });
+  gsap.to(bannerImg, {
+    scrollTrigger: {
+      trigger: ".banner",
+      start: "top top",
+      end: "bottom 60%",
+      scrub: 1,
+      // markers: true,
+    },
+    ease: "power3.out",
+    yPercent: -5,
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
   animateTextKaraoke();
   footer();
+  bannerParallax();
   animationTextAuto();
   magicCursor();
   header();
