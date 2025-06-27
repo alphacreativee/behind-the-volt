@@ -393,15 +393,12 @@ function ourService() {
 }
 function bannerParallax() {
   const bannerImg = document.querySelector(".banner picture img");
-  gsap.set(bannerImg, {
-    scale: 1.1,
-    willChange: "transform",
-  });
+
   gsap.to(bannerImg, {
     scrollTrigger: {
       trigger: ".banner",
       start: "top top",
-      end: "bottom 60%",
+      end: "bottom 30%",
       scrub: 1,
       // markers: true,
     },

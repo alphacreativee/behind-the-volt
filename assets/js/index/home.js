@@ -145,7 +145,7 @@ function projectScroll() {
             scale: 2 - progress,
           });
           gsap.set(imgContainer, {
-            borderRadius: 150 - progress * 150 + "px",
+            borderRadius: 50 - progress * 50 + "px",
           });
         },
       });
