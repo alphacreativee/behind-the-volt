@@ -95,15 +95,20 @@ function animationText() {
         duration: 2,
         ease: "power3.out",
         stagger: 0.05,
-        scrollTrigger: {
-          trigger: description,
-          start: "top 60%",
-        },
+        ...(description.classList.contains("auto-effect")
+          ? {}
+          : {
+              scrollTrigger: {
+                trigger: description,
+                start: "top 60%",
+              },
+            }),
       }
     );
   });
+
   gsap.utils.toArray(".effect-fade-up").forEach((element) => {
-    const start = parseFloat(element.dataset.start) || center;
+    const start = parseFloat(element.dataset.start) || "50%";
     gsap.fromTo(
       element,
       {
@@ -121,6 +126,81 @@ function animationText() {
           start: `top ${start}%`,
           // markers: true,
         },
+      }
+    );
+  });
+}
+function animationTextAuto() {
+  splitTextInstances.forEach((instance) => instance.revert());
+  splitTextInstances.length = 0;
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.utils.toArray(".effect-heading-auto").forEach((heading) => {
+    const splitText = new SplitText(heading, {
+      type: "words, chars",
+      charsClass: "char",
+      wordsClass: "word",
+    });
+    splitTextInstances.push(splitText);
+
+    gsap.fromTo(
+      splitText.chars,
+      {
+        filter: "blur(10px)",
+        y: 10,
+        willChange: "filter, transform",
+        opacity: 0,
+        skewX: "-3deg",
+      },
+      {
+        ease: "power3.out",
+        filter: "blur(0px)",
+        y: 0,
+        skewX: "0deg",
+        stagger: 0.05,
+        opacity: 1,
+        duration: 2,
+      }
+    );
+  });
+  gsap.utils.toArray(".effect-description-auto").forEach((description) => {
+    const splitDescription = new SplitText(description, {
+      type: "lines",
+      linesClass: "line",
+      mask: "lines",
+    });
+    splitTextInstances.push(splitDescription);
+
+    gsap.fromTo(
+      splitDescription.lines,
+      {
+        y: 40,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 2,
+        ease: "power3.out",
+        stagger: 0.05,
+      }
+    );
+  });
+
+  gsap.utils.toArray(".effect-fade-up-auto").forEach((element) => {
+    r;
+    gsap.fromTo(
+      element,
+      {
+        y: 20,
+        opacity: 0,
+        willChange: "transform",
+      },
+      {
+        y: 0,
+        duration: 1,
+        opacity: 1,
+        ease: "power3.out",
+        delay: 1.5,
       }
     );
   });
@@ -183,7 +263,12 @@ function animation() {
 
 function magicCursor() {
   var circle = document.querySelector(".magic-cursor");
-
+  document.addEventListener("click", (e) => {
+    circle.classList.add("scale-in");
+    setTimeout(() => {
+      circle.classList.remove("scale-in");
+    }, 500);
+  });
   gsap.set(circle, {
     xPercent: -50,
     yPercent: -50,
@@ -315,6 +400,7 @@ const init = () => {
   animationText();
   animateTextKaraoke();
   footer();
+  animationTextAuto();
   magicCursor();
   header();
   ourService();

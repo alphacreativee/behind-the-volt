@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/use/favicon-white.svg"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/fonts/power-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/space-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <!-- end link custom css page -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      fetch("./components/cursor.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("cursor").innerHTML = data;
+        });
+    </script>
+    <div id="cursor"></div>
+    <!-- layout -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(
+            ".header-menu-container ul li a"
+          );
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+            const cleanedPath = linkPath.substring(1);
+
+            if (
+              cleanedPath === currentPath ||
+              (currentPath === "/" && cleanedPath === "/")
+            ) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header"></header>
+    <main>
+      <div class="spacing-20x"></div>
+      <section class="contact">
+        <div class="contact-container">
+          <div class="contact-left">
+            <h1
+              class="contact-title h1-font color-white font-heading effect-heading-auto"
+            >
+              Let's create something <span>extraordinary</span>
+            </h1>
+            <div class="contact-description b1-font color-white font-body effect-description-auto">
+              We’d love to hear from you. Whether you’re looking to start a new
+              project, explore a collaboration, or simply want to learn more
+              about what BTV can offer, simply want to learn more about what BTV
+              can offer,
+            </div>
+            <div class="contact-link effect-fade-up-auto" >
+              <a href="" class="color-white font-heading f30-32 fw-bold"
+                >connect@behindthevolt.com</a
+              >
+            </div>
+          </div>
+          <div class="contact-right">
+            <div class="contact-form">
+              <form action="">
+                <div class="input-container">
+                    <input type="text" id="yourname" name="yourname" placeholder=" "/>
+                  <label for="yourname" class="input-label b1-font"
+                    >Please enter your name.</label
+                  >
+                  
+                </div>
+                <div class="input-container">
+                <input type="email" id="youremail" name="youremail"placeholder=" " />
+                  <label for="youremail" class="input-label b1-font"
+                    >Please enter your email ID.</label
+                  >
+
+                </div>
+                <div class="input-container">
+                     <input type="tel" id="phonenumber" name="phone" placeholder=" "/>
+                  <label for="phonenumber"  class="input-label b1-font"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    >Share your mobile number.</label
+                  >
+                 
+                </div>
+                <div class="input-container message">
+                    <textarea name="message" id="message" placeholder=" "></textarea rows="4"> 
+                  <label for="message" class="input-label b1-font"
+                    >Write your message here...</label
+                  >
+           
+                </div>
+                <div class="form-checked">
+                  <div class="form-checked-container">
+                    <input type="checkbox" id="terms" />
+                    <label for="terms" class="b1-font color-white">
+                      You agree to our
+                      <span>
+                        <a href="" class="color-white">privacy policy</a>
+                      </span></label
+                    >
+
+                  </div>
+                </div>
+                <button class="btn-global " >
+                     <div
+                    class="btn-rolling-text font-body fw-bold btn-font"
+                    data-replace="Send Message"
+                  >
+                    <span>Send Message</span>
+                  </div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script type="module" src="./assets/main/js/script.min.js" defer></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->
