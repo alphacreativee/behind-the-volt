@@ -27,6 +27,8 @@
     border-radius: 4px;
     border: 2px solid var(--color-primary);
     position: relative;
+    background-color: #1c1c1c;
+    backdrop-filter: blur(10px);
     &::before {
       content: "";
       position: absolute;
