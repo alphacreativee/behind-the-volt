@@ -73,7 +73,7 @@ function animationText() {
         duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: `top ${dataStartHeading}`
+          start: "top 60%"
         }
       }
     );
@@ -599,13 +599,14 @@ function particleEffect() {
 function effectImgParallaxAndMove() {
   gsap.utils.toArray(".img-move-parallax").forEach((imgWrapper) => {
     const img = imgWrapper.querySelector("img");
-
+    const isReverse = imgWrapper.classList.contains("move-reverse");
+    const xPercentValue = isReverse ? -50 : 50;
     gsap.set(imgWrapper, {
-      xPercent: 50,
+      xPercent: xPercentValue,
       autoAlpha: 0
     });
     gsap.set(img, {
-      yPercent: -10,
+      yPercent: -15,
       scale: 1.2
     });
 
@@ -613,8 +614,8 @@ function effectImgParallaxAndMove() {
       scrollTrigger: {
         trigger: imgWrapper,
         start: "top 50%",
-        end: "center 50%",
-        markers: true
+        end: "center 50%"
+        // markers: true,
       }
     });
     tl1.to(imgWrapper, {
@@ -625,7 +626,7 @@ function effectImgParallaxAndMove() {
       scrollTrigger: {
         trigger: imgWrapper,
         start: "center 70%",
-        end: "bottom 30%",
+        end: "bottom 20%",
         // markers: true,
         scrub: 1
       }
