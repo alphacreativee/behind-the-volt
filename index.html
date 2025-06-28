@@ -33,6 +33,17 @@
     </script>
   </head>
   <body>
+    <!-- particle -->
+    <script>
+      fetch("./components/particle.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("particle-effect").innerHTML = data;
+        });
+    </script>
+    <div id="particle-effect"></div>
+    <!-- end particle -->
+    <!-- cursor -->
     <script>
       fetch("./components/cursor.html")
         .then((response) => response.text())
@@ -41,8 +52,9 @@
         });
     </script>
     <div id="cursor"></div>
-
+    <!-- end cursor -->
     <!-- layout -->
+    <!-- header -->
     <script>
       fetch("./components/header.html")
         .then((response) => response.text())
@@ -67,6 +79,7 @@
         });
     </script>
     <header id="header"></header>
+    <!-- end header -->
     <main>
       <section class="banner">
         <div class="container-fluid p-0">
@@ -133,7 +146,11 @@
           <div class="services-wrapper">
             <div class="col-lg-10 offset-lg-1">
               <div class="title">
-                <img src="./assets/images/our-service.png" alt="" />
+                <img
+                  src="./assets/images/our-service.png"
+                  alt=""
+                  class="fade-in-img"
+                />
                 <div class="text h1-font color-white effect-heading">
                   Services
                 </div>
@@ -318,7 +335,11 @@
       <div class="spacing-24x"></div>
       <section class="projects">
         <div class="project-top">
-          <img src="./assets/images/project-text.png" alt="" />
+          <img
+            src="./assets/images/project-text.png"
+            alt=""
+            class="fade-in-img"
+          />
           <div class="text h1-font color-white effect-heading font-heading">
             Project
           </div>

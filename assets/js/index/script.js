@@ -256,6 +256,25 @@ function animation() {
       }
     );
   });
+  gsap.utils.toArray(".fade-in-img").forEach((img) => {
+    gsap.fromTo(
+      img,
+      {
+        autoAlpha: 0,
+      },
+      {
+        autoAlpha: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: img,
+          start: "top 50%",
+          end: "bottom 30%",
+          // markers: true,
+        },
+      }
+    );
+  });
 }
 
 function magicCursor() {
@@ -394,21 +413,123 @@ function ourService() {
 function bannerParallax() {
   const bannerImg = document.querySelector(".banner picture img");
 
-  gsap.to(bannerImg, {
-    scrollTrigger: {
-      trigger: ".banner",
-      start: "top top",
-      end: "bottom 30%",
-      scrub: 1,
-      // markers: true,
+  gsap.fromTo(
+    bannerImg,
+    {
+      yPercent: -5,
     },
-    ease: "power3.out",
-    yPercent: -5,
+    {
+      scrollTrigger: {
+        trigger: ".banner",
+        start: "top top",
+        end: "bottom 30%",
+        scrub: 1,
+        // markers: true,
+      },
+      ease: "power3.out",
+      yPercent: 5,
+    }
+  );
+}
+function particleEffect() {
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 0.5;
+      this.speedX = Math.random() * 2 - 1;
+      this.speedY = Math.random() * 2 - 1;
+      this.opacity = Math.random() * 0.5 + 0.1;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+
+  const particles = Array.from({ length: 200 }, () => new Particle());
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((particle) => {
+      particle.update();
+      particle.draw();
+    });
+
+    particles.forEach((p1, i) => {
+      particles.slice(i + 1).forEach((p2) => {
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(255, 255, 255, ${
+            0.1 * (1 - distance / 100)
+          })`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      });
+
+      const dx = p1.x - mouseX;
+      const dy = p1.y - mouseY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 150) {
+        const angle = Math.atan2(dy, dx);
+        const force = (150 - distance) / 150;
+
+        p1.x += Math.cos(angle) * force * 2;
+        p1.y += Math.sin(angle) * force * 2;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
+  particleEffect();
   animateTextKaraoke();
   footer();
   bannerParallax();

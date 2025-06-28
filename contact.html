@@ -33,6 +33,16 @@
     </script>
   </head>
   <body>
+        <!-- particle -->
+    <script>
+      fetch("./components/particle.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("particle-effect").innerHTML = data;
+        });
+    </script>
+    <div id="particle-effect"></div>
+    <!-- end particle -->
     <script>
       fetch("./components/cursor.html")
         .then((response) => response.text())
