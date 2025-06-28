@@ -205,33 +205,23 @@ function initGlobe(places) {
     .htmlElement((d) => {
       const el = document.createElement("div");
       el.innerHTML = `
-        <div style="
-          background: #00ffff;
-          color: #000;
-          padding: 4px 12px;
-          font-family: 'Poppins', sans-serif;
-          font-size: 12px;
-          font-weight: 400;
-          white-space: nowrap;
-          box-shadow: 0 2px 8px rgba(0, 255, 255, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          backdrop-filter: blur(4px);
-          clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 10px 100%, 0px 20px);
-          text-align: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
+        <div class="dot-name" style="
+    
         ">${d.properties.name}</div>
       `;
 
       // Add hover effect
+      // Enhanced hover effect
       const labelDiv = el.firstElementChild;
       labelDiv.addEventListener("mouseenter", () => {
-        labelDiv.style.transform = "scale(1.1)";
-        labelDiv.style.boxShadow = "0 4px 16px rgba(0, 255, 255, 0.5)";
+        labelDiv.style.transform = "scale(1.3) translateY(-12px)";
+        labelDiv.style.boxShadow = "0 4px 16px rgba(0, 255, 255, 0.7)";
+        labelDiv.style.zIndex = "1000"; // Bring to front
       });
       labelDiv.addEventListener("mouseleave", () => {
-        labelDiv.style.transform = "scale(1)";
+        labelDiv.style.transform = "scale(1) translateY(-12px)";
         labelDiv.style.boxShadow = "0 2px 8px rgba(0, 255, 255, 0.3)";
+        labelDiv.style.zIndex = "1";
       });
 
       return el;
