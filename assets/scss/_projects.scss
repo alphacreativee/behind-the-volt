@@ -17,6 +17,11 @@
       left: 45px;
     }
   }
+  &-title {
+    h2 {
+      line-height: 1;
+    }
+  }
   &-list {
     position: relative;
     gap: 25vh;

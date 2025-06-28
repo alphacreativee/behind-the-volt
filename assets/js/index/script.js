@@ -416,7 +416,7 @@ function bannerParallax() {
   gsap.fromTo(
     bannerImg,
     {
-      yPercent: -5,
+      yPercent: -10,
     },
     {
       scrollTrigger: {
@@ -427,7 +427,7 @@ function bannerParallax() {
         // markers: true,
       },
       ease: "power3.out",
-      yPercent: 5,
+      yPercent: -5,
     }
   );
 }
@@ -526,6 +526,25 @@ function particleEffect() {
 
   animate();
 }
+function effectImgParallaxAndMove() {
+  gsap.utils.toArray(".img-move-parallax").forEach((imgWrapper) => {
+    const img = imgWrapper.querySelector("img");
+    gsap.set(img, {
+      scale: 1.4,
+      yPercent: -10,
+    });
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: imgWrapper,
+        start: "top 70%",
+        end: "bottom 30%",
+        markers: true,
+        scrub: 1,
+      },
+      yPercent: 10,
+    });
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
@@ -538,6 +557,7 @@ const init = () => {
   header();
   ourService();
   animation();
+  effectImgParallaxAndMove();
   ScrollTrigger.refresh(true);
 };
 preloadImages("img").then(() => {
