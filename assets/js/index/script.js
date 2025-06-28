@@ -531,7 +531,8 @@ function effectImgParallaxAndMove() {
     const img = imgWrapper.querySelector("img");
 
     gsap.set(imgWrapper, {
-      xPercent: 100
+      xPercent: 50,
+      autoAlpha: 0
     });
     gsap.set(img, {
       yPercent: -10,
@@ -541,11 +542,9 @@ function effectImgParallaxAndMove() {
     const tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapper,
-        start: "top 60%",
+        start: "top 50%",
         end: "center 50%",
-        // markers: true,
-        scrub: 1,
-        once: true
+        markers: true
       }
     });
     tl1.to(imgWrapper, {
