@@ -182,3 +182,73 @@ html,
     transform-origin: 50% 50%;
   }
 }
+
+.section-bg {
+  overflow: hidden;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  z-index: -2;
+  background-image: url("../../images/use/btv-bg.png");
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  animation: moveUpDown 10s linear infinite alternate;
+}
+
+main {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 176.82px,
+      rgb(0, 0, 0) 469.19px,
+      rgb(0, 0, 0) 605.5px,
+      rgba(0, 0, 0, 0) 731.23px,
+      rgb(0, 0, 0) 841.56px,
+      rgba(0, 0, 0, 0.8) 1409.29px,
+      rgb(0, 0, 0) 1730px
+    );
+    animation: moveUpDown 7s linear infinite alternate;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 300px;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: -1;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 176.82px,
+      rgb(0, 0, 0) 469.19px,
+      rgb(0, 0, 0) 605.5px,
+      rgba(0, 0, 0, 0) 731.23px,
+      rgb(0, 0, 0) 841.56px,
+      rgba(0, 0, 0, 0.8) 1409.29px,
+      rgb(0, 0, 0) 1730px
+    );
+    animation: moveUpDown 6s linear infinite alternate;
+  }
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300px);
+  }
+}

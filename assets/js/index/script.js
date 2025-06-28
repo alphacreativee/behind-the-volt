@@ -27,7 +27,7 @@ function footer() {
   ctx.clearRect(0, 0, w, h);
 
   ctx.strokeStyle = "#00FFFF";
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 2;
   ctx.beginPath();
 
   ctx.moveTo(0, 5); // điểm bắt đầu
@@ -550,8 +550,6 @@ function effectImgParallaxAndMove() {
     });
     tl1.to(imgWrapper, {
       xPercent: 0,
-      autoAlpha: 1,
-      duration: 1,
     });
 
     const tl2 = gsap.timeline({
