@@ -34,4 +34,9 @@
       object-fit: cover;
     }
   }
+  &-list {
+    .row {
+      overflow-x: hidden;
+    }
+  }
 }

@@ -529,18 +529,39 @@ function particleEffect() {
 function effectImgParallaxAndMove() {
   gsap.utils.toArray(".img-move-parallax").forEach((imgWrapper) => {
     const img = imgWrapper.querySelector("img");
-    gsap.set(img, {
-      scale: 1.4,
-      yPercent: -10,
+
+    gsap.set(imgWrapper, {
+      xPercent: 100,
     });
-    gsap.to(img, {
+    gsap.set(img, {
+      yPercent: -10,
+      scale: 1.2,
+    });
+
+    const tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapper,
-        start: "top 70%",
+        start: "top 60%",
+        end: "center 50%",
+        // markers: true,
+        scrub: 1,
+        once: true,
+      },
+    });
+    tl1.to(imgWrapper, {
+      xPercent: 0,
+    });
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: imgWrapper,
+        start: "center 70%",
         end: "bottom 30%",
-        markers: true,
+        // markers: true,
         scrub: 1,
       },
+    });
+    tl2.to(img, {
       yPercent: 10,
     });
   });
