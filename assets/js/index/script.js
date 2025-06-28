@@ -44,7 +44,9 @@ function animationText() {
   splitTextInstances.length = 0;
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
+
   gsap.utils.toArray(".effect-heading").forEach((heading) => {
+    const dataStartHeading = heading.dataset.start || "60%";
     const splitText = new SplitText(heading, {
       type: "words, chars",
       charsClass: "char",
@@ -71,7 +73,7 @@ function animationText() {
         duration: 2,
         scrollTrigger: {
           trigger: heading,
-          start: "top 60%"
+          start: `top ${dataStartHeading}`
         }
       }
     );
@@ -409,6 +411,74 @@ function ourService() {
     });
   }
   consultancy();
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from(".our-services .card", {
+    yPercent: 20,
+    opacity: 0,
+    rotate: 10,
+    duration: 0.9,
+    ease: "power2.out",
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: ".our-services .services-list",
+      start: "top 60%",
+      toggleActions: "play none none none"
+      // markers: true
+    }
+  });
+
+  const $cards = document.querySelectorAll(".our-services .card");
+
+  $cards.forEach(($card) => {
+    let bounds;
+
+    function rotateToMouse(e) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+      };
+
+      const $glow = $card.querySelector(".glow");
+      if ($glow) {
+        $glow.style.backgroundImage = `
+        radial-gradient(
+          circle at
+          ${center.x * 2 + bounds.width / 2}px
+          ${center.y * 2 + bounds.height / 2}px,
+          #00ffff1A,
+          #1c1c1c
+        )
+      `;
+      }
+    }
+
+    $card.addEventListener("mouseenter", () => {
+      bounds = $card.getBoundingClientRect();
+      document.addEventListener("mousemove", rotateToMouse);
+    });
+
+    $card.addEventListener("mouseleave", () => {
+      document.removeEventListener("mousemove", rotateToMouse);
+
+      const $glow = $card.querySelector(".glow");
+      if ($glow) {
+        $glow.style.backgroundImage = `
+        radial-gradient(
+          circle at 50% -20%,
+          #1c1c1c,
+          #1c1c1c
+        )
+      `;
+      }
+    });
+  });
 }
 function bannerParallax() {
   const bannerImg = document.querySelector(".banner picture img");
