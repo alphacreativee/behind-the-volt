@@ -196,9 +196,12 @@ function initGlobe(places) {
     .height(globeHeight) // Đặt chiều cao
     .backgroundColor("rgba(0,0,0,0)") // Nền trong suốt
     .atmosphereColor("white")
+
     .htmlElementsData(places.features)
     .htmlLat((d) => d.properties.latitude)
     .htmlLng((d) => d.properties.longitude)
+    .labelSize((d) => Math.sqrt(d.properties.pop_max) * 4e-4)
+    .labelDotRadius((d) => Math.sqrt(d.properties.pop_max) * 4e-4)
     .htmlElement((d) => {
       const el = document.createElement("div");
       el.innerHTML = `
@@ -212,8 +215,8 @@ function initGlobe(places) {
           white-space: nowrap;
           box-shadow: 0 2px 8px rgba(0, 255, 255, 0.3);
           border: 1px solid rgba(255, 255, 255, 0.2);
-          backdrop-filter: blur(4px);   
-          clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 10px 100%, 0px 20px);     
+          backdrop-filter: blur(4px);
+          clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 10px 100%, 0px 20px);
           text-align: center;
           cursor: pointer;
           transition: all 0.3s ease;
