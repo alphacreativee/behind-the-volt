@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insight</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/use/favicon-white.svg"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/fonts/power-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/space-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <!-- end link custom css page -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- particle -->
+    <script>
+      fetch("./components/particle.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("particle-effect").innerHTML = data;
+        });
+    </script>
+    <div id="particle-effect"></div>
+    <!-- end particle -->
+    <script>
+      fetch("./components/cursor.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("cursor").innerHTML = data;
+        });
+    </script>
+    <div id="cursor"></div>
+    <!-- layout -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(
+            ".header-menu-container ul li a"
+          );
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+            const cleanedPath = linkPath.substring(1);
+
+            if (
+              cleanedPath === currentPath ||
+              (currentPath === "/" && cleanedPath === "/")
+            ) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header"></header>
+    <main>
+      <section class="banner">
+        <div class="container-fluid p-0">
+          <div class="banner-container position-relative">
+            <div class="banner-triangle"></div>
+            <div class="banner-line"></div>
+            <div class="banner-word">
+              <img src="./assets/images/use/BTV.png" alt="" />
+            </div>
+            <!-- options img -->
+            <picture>
+              <img src="./assets/images/banner-project.png" alt="" />
+            </picture>
+            <!-- end options img -->
+            <!-- options video -->
+            <!-- <video
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              poster="./assets/images/banner.jpg"
+            >
+              <source src="./assets/images/use/video.mp4" type="video/mp4" />
+            </video> -->
+            <!-- end options video -->
+          </div>
+        </div>
+      </section>
+      <section class="our-project insight">
+        <div class="our-project-top">
+          <img
+            src="./assets/images/our-service.png"
+            alt=""
+            class="fade-in-img"
+          />
+          <div class="text h1-font color-white effect-heading font-heading">
+            Insight
+          </div>
+        </div>
+        <div class="our-project-list">
+          <div class="contaier-fluid p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="our-project-content">
+                  <h2
+                    class="our-project-title color-primary font-heading h1-font font-extrabold effect-heading"
+                  >
+                    Riyadh Golf Events 
+                  </h2>
+                  <div
+                    class="our-project-description b1-font color-white font-body effect-description"
+                  >
+                    Provided seamless IT, broadcast, and operations connectivity
+                    across festival and sporting infrastructure
+                  </div>
+                  <div
+                    class="our-project-button effect-fade-up"
+                    data-start="75%"
+                  >
+                    <a
+                      href=""
+                      class="btn-global effect-fade-up"
+                      data-start="75%"
+                    >
+                      <div
+                        class="btn-rolling-text font-body fw-bold btn-font"
+                        data-replace="View Article"
+                      >
+                        <span>View Article</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="our-project-img img-move-parallax">
+                  <img src="./assets/images/our-project-1.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 flex-row-reverse">
+              <div class="col-lg-6">
+                <div class="our-project-content">
+                  <h2
+                    class="our-project-title color-primary font-heading h1-font font-extrabold effect-heading"
+                  >
+                    LIV Night Golf 
+                  </h2>
+                  <div
+                    class="our-project-description b1-font color-white font-body effect-description"
+                  >
+                    Delivered a groundbreaking, fully timecoded light show
+                    across an entire golf course—synchronised for multiple
+                    viewing angles and audience touchpoints.
+                  </div>
+                  <div
+                    class="our-project-button effect-fade-up"
+                    data-start="75%"
+                  >
+                    <a
+                      href=""
+                      class="btn-global effect-fade-up"
+                      data-start="75%"
+                    >
+                      <div
+                        class="btn-rolling-text font-body fw-bold btn-font"
+                        data-replace="View Article"
+                      >
+                        <span>View Article</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="our-project-img img-move-parallax move-reverse">
+                  <img src="./assets/images/our-project-2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="our-project-content">
+                  <h2
+                    class="our-project-title color-primary font-heading h1-font font-extrabold effect-heading"
+                  >
+                    Riyadh Golf Events 
+                  </h2>
+                  <div
+                    class="our-project-description b1-font color-white font-body effect-description"
+                  >
+                    Provided seamless IT, broadcast, and operations connectivity
+                    across festival and sporting infrastructure
+                  </div>
+                  <div
+                    class="our-project-button effect-fade-up"
+                    data-start="75%"
+                  >
+                    <a
+                      href=""
+                      class="btn-global effect-fade-up"
+                      data-start="75%"
+                    >
+                      <div
+                        class="btn-rolling-text font-body fw-bold btn-font"
+                        data-replace="View Article"
+                      >
+                        <span>View Article</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="our-project-img img-move-parallax">
+                  <img src="./assets/images/our-project-3.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="row g-0 flex-row-reverse">
+              <div class="col-lg-6">
+                <div class="our-project-content">
+                  <h2
+                    class="our-project-title color-primary font-heading h1-font font-extrabold effect-heading"
+                  >
+                    Qiddiya Golf
+                  </h2>
+                  <div
+                    class="our-project-description b1-font color-white font-body effect-description"
+                  >
+                    Provided strategic infrastructure consultancy on power
+                    distribution, network architecture, and lighting
+                  </div>
+                  <div
+                    class="our-project-button effect-fade-up"
+                    data-start="75%"
+                  >
+                    <a
+                      href=""
+                      class="btn-global effect-fade-up"
+                      data-start="75%"
+                    >
+                      <div
+                        class="btn-rolling-text font-body fw-bold btn-font"
+                        data-replace="View Article"
+                      >
+                        <span>View Article</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="our-project-img img-move-parallax move-reverse">
+                  <img src="./assets/images/our-project-4.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script type="module" src="./assets/main/js/script.min.js" defer></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->

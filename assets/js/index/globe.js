@@ -111,7 +111,6 @@ function moveToRegion(region) {
     console.warn("No regions found for:", region);
     return;
   }
-
   const { latitude: lat, longitude: lng } = regions[0].properties;
 
   globe.pointOfView({ lat, lng, altitude: 1.8 }, 2000); // 2-second transition
@@ -143,9 +142,9 @@ function resetView() {
 // Function to handle checkbox changes
 function handleRegionChange(regionId, region) {
   const checkbox = document.getElementById(regionId);
-
   if (checkbox.checked) {
     // Uncheck other checkboxes (single selection)
+
     const allRegions = [
       "filter-uk",
       "filter-spain",
@@ -281,6 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     if (globe) {
       moveToRegion("uk");
+      document.getElementById("filter-uk").checked = true;
     }
   }, 1000); // Wait 1 second for globe to fully initialize
 });
