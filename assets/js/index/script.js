@@ -287,7 +287,7 @@ function animation() {
       element,
       {
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -298,10 +298,10 @@ function animation() {
         scrollTrigger: {
           trigger: element,
           start: `top ${posOffset}`,
-          end: `bottom ${posOffset}`
+          end: `bottom ${posOffset}`,
           // toggleActions: "play none none reverse"
           // markers: true
-        }
+        },
       }
     );
   });
@@ -692,7 +692,7 @@ function effectImgParallaxAndMove() {
       },
     });
     tl1.to(imgWrapper, {
-      xPercent: 0,,
+      xPercent: 0,
       autoAlpha: 1,
       duration: 1.5,
       ease: "power3.out",
@@ -728,6 +728,7 @@ function formCard() {
       });
     });
 }
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
@@ -736,7 +737,7 @@ const init = () => {
   animateTextKaraoke();
   footer();
   bannerParallax();
-  animationTextAuto();
+  // animationTextAuto();
   magicCursor();
   header();
   ourService();
