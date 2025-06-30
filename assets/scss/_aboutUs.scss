@@ -1,0 +1,27 @@
+.section-about {
+  padding: 140px 0;
+
+  .about {
+    &-wrapper {
+      .title {
+        width: max-content;
+        max-width: 100%;
+        position: relative;
+        margin: 0 auto;
+        margin-left: 0;
+
+        img {
+          width: 590px;
+          height: auto;
+        }
+
+        .text {
+          left: 50px;
+          bottom: 80px;
+          position: absolute;
+          width: max-content;
+        }
+      }
+    }
+  }
+}
