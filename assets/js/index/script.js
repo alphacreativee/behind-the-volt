@@ -700,6 +700,7 @@ function formCard() {
       });
     });
 }
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
@@ -708,7 +709,7 @@ const init = () => {
   animateTextKaraoke();
   footer();
   bannerParallax();
-  animationTextAuto();
+  // animationTextAuto();
   magicCursor();
   header();
   ourService();
