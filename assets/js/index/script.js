@@ -606,22 +606,22 @@ function particleEffect() {
     });
 
     particles.forEach((p1, i) => {
-      particles.slice(i + 1).forEach((p2) => {
-        const dx = p1.x - p2.x;
-        const dy = p1.y - p2.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+      // particles.slice(i + 1).forEach((p2) => {
+      //   const dx = p1.x - p2.x;
+      //   const dy = p1.y - p2.y;
+      //   const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(255, 255, 255, ${
-            0.1 * (1 - distance / 100)
-          })`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-        }
-      });
+      //   if (distance < 100) {
+      //     ctx.beginPath();
+      //     ctx.strokeStyle = `rgba(255, 255, 255, ${
+      //       0.1 * (1 - distance / 100)
+      //     })`;
+      //     ctx.lineWidth = 0.5;
+      //     ctx.moveTo(p1.x, p1.y);
+      //     ctx.lineTo(p2.x, p2.y);
+      //     ctx.stroke();
+      //   }
+      // });
 
       const dx = p1.x - mouseX;
       const dy = p1.y - mouseY;
