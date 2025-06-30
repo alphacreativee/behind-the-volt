@@ -345,19 +345,23 @@ function header() {
   const menuSub = document.querySelector("li.menu-item-has-children");
   // animation item text menu
   let tl = gsap.timeline({ paused: true });
-  tl.from(".header-menu-container ul li", {
-    y: 100,
+
+  tl.from(".header-menu-container > ul > li", {
+    y: 50,
     opacity: 0,
-    filter: "blur(5px)",
+    filter: "blur(10px)",
     stagger: 0.1,
-    duration: 0.6,
+    duration: 1,
     ease: "power2.out",
   });
   btnHambuger.addEventListener("click", () => {
     if (headerMenu.classList.contains("active")) {
       btnHambuger.classList.remove("active");
-      headerMenu.classList.remove("active");
-      headerMenu.classList.add("closing");
+      tl.reverse();
+      setTimeout(() => {
+        headerMenu.classList.remove("active");
+        headerMenu.classList.add("closing");
+      }, 1500);
 
       setTimeout(() => {
         headerMenu.classList.remove("closing");
@@ -380,14 +384,17 @@ function header() {
         headerMenu.classList.contains("active")
       ) {
         btnHambuger.classList.remove("active");
-        headerMenu.classList.remove("active");
 
-        headerMenu.classList.add("closing");
         menuSub.classList.remove("active");
+
         tl.reverse();
         setTimeout(() => {
+          headerMenu.classList.remove("active");
+          headerMenu.classList.add("closing");
+        }, 1500);
+        setTimeout(() => {
           headerMenu.classList.remove("closing");
-        }, 2000);
+        }, 1000);
       }
     });
   }
