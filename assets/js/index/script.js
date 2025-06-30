@@ -636,9 +636,26 @@ function effectImgParallaxAndMove() {
     });
   });
 }
+function formCard() {
+  const forms = document.querySelectorAll(".contact-form");
+
+  document
+    .querySelector(".contact-right")
+    .addEventListener("mousemove", (e) => {
+      forms.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
+  formCard();
   particleEffect();
   animateTextKaraoke();
   footer();
