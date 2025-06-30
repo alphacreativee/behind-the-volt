@@ -620,6 +620,7 @@ function effectImgParallaxAndMove() {
     });
     tl1.to(imgWrapper, {
       xPercent: 0,
+      autoAlpha: 1,
     });
 
     const tl2 = gsap.timeline({
