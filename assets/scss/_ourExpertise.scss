@@ -3,14 +3,78 @@
     &-wrapper {
       padding: 0 80px;
       display: grid;
-      grid-template-columns: 2fr 3fr 2fr;
-      gap: 80px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 100px;
+      margin-top: 80px;
 
       .number {
         font-size: 80px;
         line-height: 100%;
         text-transform: uppercase;
       }
+    }
+
+    &-item {
+      display: grid;
+      grid-template-columns: 95px auto;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 20px;
+      padding-right: 8px;
+
+      &::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 3px solid #0ff;
+        position: absolute;
+        bottom: 2px;
+        right: 0;
+        transform: translateY(50%);
+      }
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 3px solid #0ff;
+        position: absolute;
+        top: 110px;
+        left: calc(95px / 2);
+        transform: translateX(-50%);
+      }
+
+      .image {
+        width: 95px;
+        aspect-ratio: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .title {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 700;
+        margin-top: 16px;
+      }
+
+      .desc {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
   }
 }
