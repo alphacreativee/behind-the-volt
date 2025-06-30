@@ -1,0 +1,16 @@
+.our-expertise {
+  .expertise {
+    &-wrapper {
+      padding: 0 80px;
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 80px;
+
+      .number {
+        font-size: 80px;
+        line-height: 100%;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
