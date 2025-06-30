@@ -26,6 +26,8 @@
       object-fit: cover;
     }
     picture {
+      height: 100%;
+
       img {
         transform: scale(1.1);
         will-change: transform;
