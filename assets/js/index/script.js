@@ -258,6 +258,7 @@ function animation() {
       }
     );
   });
+
   gsap.utils.toArray(".fade-in-img").forEach((img) => {
     gsap.fromTo(
       img,
@@ -273,6 +274,33 @@ function animation() {
           start: "top 50%",
           end: "bottom 30%"
           // markers: true,
+        }
+      }
+    );
+  });
+
+  gsap.utils.toArray(".effect-fade-in").forEach((element) => {
+    let posOffset = element.getAttribute("data-start") || "70%";
+    let dataDelay = element.getAttribute("data-delay") || "0";
+
+    gsap.fromTo(
+      element,
+      {
+        opacity: 0,
+        y: 20
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: dataDelay,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: element,
+          start: `top ${posOffset}`,
+          end: `bottom ${posOffset}`
+          // toggleActions: "play none none reverse"
+          // markers: true
         }
       }
     );
@@ -619,8 +647,8 @@ function effectImgParallaxAndMove() {
       }
     });
     tl1.to(imgWrapper, {
-      xPercent: 0
-      autoAlpha: 1,
+      xPercent: 0,
+      autoAlpha: 1
     });
 
     const tl2 = gsap.timeline({
