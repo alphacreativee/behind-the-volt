@@ -343,16 +343,54 @@ function header() {
   const btnHambuger = document.querySelector(".header-hambuger");
   const headerMenu = document.querySelector(".header-menu");
   const menuSub = document.querySelector("li.menu-item-has-children");
-  btnHambuger.addEventListener("click", () => {
-    btnHambuger.classList.toggle("active");
-    headerMenu.classList.toggle("active");
+  // animation item text menu
+  let tl = gsap.timeline({ paused: true });
+  tl.from(".header-menu-container ul li", {
+    y: 100,
+    opacity: 0,
+    filter: "blur(5px)",
+    stagger: 0.1,
+    duration: 0.6,
+    ease: "power2.out",
   });
-  document.addEventListener("click", (e) => {
-    if (!btnHambuger.contains(e.target) && !headerMenu.contains(e.target)) {
+  btnHambuger.addEventListener("click", () => {
+    if (headerMenu.classList.contains("active")) {
       btnHambuger.classList.remove("active");
       headerMenu.classList.remove("active");
+      headerMenu.classList.add("closing");
+
+      setTimeout(() => {
+        headerMenu.classList.remove("closing");
+      }, 1000);
+    } else {
+      btnHambuger.classList.add("active");
+      headerMenu.classList.add("active");
+
+      headerMenu.classList.remove("closing");
+      setTimeout(() => {
+        tl.restart();
+      }, 1000);
     }
   });
+  if (btnHambuger && headerMenu) {
+    document.addEventListener("click", (e) => {
+      if (
+        !btnHambuger.contains(e.target) &&
+        !headerMenu.contains(e.target) &&
+        headerMenu.classList.contains("active")
+      ) {
+        btnHambuger.classList.remove("active");
+        headerMenu.classList.remove("active");
+
+        headerMenu.classList.add("closing");
+        menuSub.classList.remove("active");
+        tl.reverse();
+        setTimeout(() => {
+          headerMenu.classList.remove("closing");
+        }, 2000);
+      }
+    });
+  }
   // mouseenter
   menuSub.addEventListener("mouseenter", () => {
     menuSub.classList.add("active");
@@ -621,6 +659,8 @@ function effectImgParallaxAndMove() {
     tl1.to(imgWrapper, {
       xPercent: 0,
       autoAlpha: 1,
+      duration: 1.5,
+      ease: "power3.out",
     });
 
     const tl2 = gsap.timeline({
