@@ -41,13 +41,13 @@
           &:nth-child(1) {
             top: 0;
             left: 0;
-            transform: rotate(43deg) scaleX(1.4);
+            transform: rotate(41deg) scaleX(1.4);
           }
           &:nth-child(2) {
             width: 0;
           }
           &:nth-child(3) {
-            transform: rotate(-43deg) scaleX(1.4);
+            transform: rotate(-41deg) scaleX(1.4);
             left: 0;
             bottom: 0;
           }
@@ -61,12 +61,13 @@
       overflow: hidden;
       span {
         position: absolute;
+        left: 0;
         width: 100%;
-        height: 1px;
+        height: 2px;
         background-color: var(--color-primary);
         transition: all 0.3s;
         &:nth-child(1) {
-          top: 3px;
+          top: 2px;
           transform-origin: left top;
         }
         &:nth-child(2) {
@@ -74,7 +75,7 @@
           transform: translateY(-50%);
         }
         &:nth-child(3) {
-          bottom: 3px;
+          bottom: 2px;
           transform-origin: left bottom;
         }
       }
@@ -129,7 +130,7 @@
               position: absolute;
               top: 20px;
               left: -24px;
-              width: 15px;
+              width: 12px;
               height: 12px;
               border-radius: 50%;
               background-color: var(--color-primary);
