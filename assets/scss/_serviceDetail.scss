@@ -1,0 +1,116 @@
+.service-detail {
+  .item-left {
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    left: 0;
+    padding-right: 80px;
+
+    .image {
+      width: 100%;
+      aspect-ratio: 413 / 236;
+      overflow: hidden;
+
+      img,
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .title {
+      margin-top: 32px;
+      font-weight: 700;
+    }
+
+    .desc {
+      margin-top: 32px;
+    }
+  }
+
+  .detail-item {
+    padding: 80px 0 140px;
+    border-top: 2px solid var(--color-primary);
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 3px solid #0ff;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      transform: translate(0, -50%);
+      background-color: var(--color-black);
+    }
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 3px solid #0ff;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      transform: translate(0, -50%);
+      background-color: var(--color-black);
+    }
+  }
+
+  .item-right {
+    &-child {
+      padding: 0 0 40px 60px;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 3px solid #0ff;
+        position: absolute;
+        bottom: 2px;
+        right: 0;
+        transform: translateY(50%);
+        background-color: var(--color-black);
+        z-index: 2;
+      }
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 3px solid #0ff;
+        position: absolute;
+        top: 0;
+        left: 2px;
+        transform: translateX(-50%);
+        background-color: var(--color-black);
+        z-index: 2;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 80px;
+      }
+
+      .title {
+        font-weight: 700;
+      }
+
+      .desc {
+        margin-top: 24px;
+      }
+    }
+
+    .item-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
