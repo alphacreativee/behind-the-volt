@@ -10,9 +10,12 @@
       width: 100%;
       aspect-ratio: 413 / 236;
       overflow: hidden;
+      will-change: clip-path;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 calc(100% - 25%));
 
       img,
       video {
+        transform: scale(1.2);
         width: 100%;
         height: 100%;
         object-fit: cover;

@@ -3,6 +3,8 @@ import { preloadImages } from "../../libs/utils.js";
 function pinEl() {
   gsap.registerPlugin(ScrollTrigger);
 
+  if ($(".pin-el").length < 1) return;
+
   const leftElement = document.querySelector(".pin-el-left");
   const rightElement = document.querySelector(".pin-el-right");
   const boxes = rightElement.querySelectorAll(".pin-el-box");

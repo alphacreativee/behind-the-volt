@@ -234,7 +234,7 @@ function animateTextKaraoke() {
 
 function animation() {
   gsap.utils.toArray(".parallax-trigger").forEach((container) => {
-    const img = container.querySelector("img");
+    const img = container.querySelector("img, video");
     if (!img) return;
 
     const tl = gsap.timeline({
@@ -729,6 +729,38 @@ function formCard() {
     });
 }
 
+function fadeTextFooter() {
+  gsap.set("data-text-footer", {
+    opacity: 0,
+    y: 20
+  });
+  let tlf = gsap.timeline({ paused: true });
+
+  tlf.fromTo(
+    "[data-text-footer]",
+    {
+      opacity: 0,
+      y: 20
+    },
+    {
+      opacity: 1,
+      y: 0,
+      stagger: 0.05,
+      duration: 0.6,
+      ease: "power2.out"
+    }
+  );
+  ScrollTrigger.create({
+    trigger: "footer",
+    start: "top 80%",
+    // markers: true,
+    animation: tlf,
+    toggleActions: "play none none none"
+  });
+
+  return tlf;
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   animationText();
@@ -743,6 +775,7 @@ const init = () => {
   ourService();
   animation();
   effectImgParallaxAndMove();
+  fadeTextFooter();
   ScrollTrigger.refresh(true);
 };
 preloadImages("img").then(() => {
