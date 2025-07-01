@@ -32,13 +32,67 @@ function pinEl() {
             title.classList.remove("active");
           }
         });
-      },
-    },
+      }
+    }
+  });
+
+  $(".pin-el .pin-el-description .pin-el-line").each(function () {
+    const canvas = this;
+    const ctx = canvas.getContext("2d");
+
+    const $parent = $(canvas).parent();
+    const width = $parent[0].offsetWidth;
+    const height = $parent[0].offsetHeight;
+    const cornerHeight = height - 60;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    ctx.clearRect(0, 0, width, height);
+    ctx.strokeStyle = "#00FFFF";
+    ctx.lineWidth = 2;
+
+    ctx.beginPath();
+    ctx.moveTo(2, 0);
+    ctx.lineTo(2, cornerHeight);
+    ctx.lineTo(60, height - 2);
+    ctx.lineTo(width, height - 2);
+    ctx.stroke();
   });
 }
+
+function serviceDetail() {
+  if ($(".service-detail").length < 1) return;
+
+  $(".service-detail .item-line").each(function () {
+    const canvas = this;
+    const ctx = canvas.getContext("2d");
+
+    const $parent = $(canvas).parent();
+    const width = $parent[0].offsetWidth;
+    const height = $parent[0].offsetHeight;
+    const cornerHeight = height - 60;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    ctx.clearRect(0, 0, width, height);
+    ctx.strokeStyle = "#00FFFF";
+    ctx.lineWidth = 2;
+
+    ctx.beginPath();
+    ctx.moveTo(2, 0);
+    ctx.lineTo(2, cornerHeight);
+    ctx.lineTo(60, height - 2);
+    ctx.lineTo(width, height - 2);
+    ctx.stroke();
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   pinEl();
+  serviceDetail();
 };
 preloadImages("img").then(() => {
   init();
