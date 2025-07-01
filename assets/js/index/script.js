@@ -789,6 +789,13 @@ function updateProgressBar() {
   const totalHeight = document.body.scrollHeight - window.innerHeight;
   const progress = (window.pageYOffset / totalHeight) * 100;
   progressBar.style.height = progress + "%";
+
+  progressBar.style.boxShadow = " 0 2px 10px 1px #00ffff";
+
+  clearTimeout(progressBar.dataset.scrollTimeout);
+  progressBar.dataset.scrollTimeout = setTimeout(() => {
+    progressBar.style.boxShadow = "none";
+  }, 300);
 }
 
 updateProgressBar();
