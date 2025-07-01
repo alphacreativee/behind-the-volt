@@ -161,6 +161,66 @@ function ourExpertise() {
     ctx.lineTo(width, height - 2);
     ctx.stroke();
   });
+
+  let hasCounted = false;
+  ScrollTrigger.create({
+    trigger: ".expertise-wrapper",
+    start: "top center",
+    once: true,
+    onEnter: () => {
+      if (!hasCounted) {
+        activeNumberCount();
+        hasCounted = true;
+      }
+    }
+  });
+
+  $(".our-expertise .expertise-item .number").each(function () {
+    const $stat = $(this);
+    const patt = /(\D+)?(\d+(\.\d+)?)(\D+)?/;
+    let result = patt.exec($stat.text());
+
+    if (!result) return;
+
+    result.shift(); // Remove the full match
+    result = result.filter((res) => res != null); // Remove null values
+
+    $stat.empty();
+
+    result.forEach((res) => {
+      if (isNaN(res)) {
+        $stat.append(`<span>${res}</span>`);
+      } else {
+        const digits = res.replace(/[^0-9]/g, "").split("");
+        digits.forEach((digit) => {
+          const num = parseInt(digit);
+          if (!isNaN(num)) {
+            $stat.append(`
+              <span data-value="${digit}">
+                <span> </span>
+                ${Array(num + 1)
+                  .fill(0)
+                  .map((_, j) => `<span>${j}</span>`)
+                  .join("")}
+              </span>
+            `);
+          } else {
+            $stat.append(`<span>${digit}</span>`);
+          }
+        });
+      }
+    });
+  });
+
+  function activeNumberCount() {
+    $(".our-expertise .number").each(function () {
+      const ticks = $(this).find("span[data-value]");
+      ticks.each(function () {
+        const dist = parseInt($(this).attr("data-value")) + 1;
+        $(this).css("transform", `translateY(-${dist * 100}%)`);
+      });
+    });
+  }
 }
 
 const init = () => {
