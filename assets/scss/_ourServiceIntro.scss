@@ -1,0 +1,18 @@
+.our-service-intro {
+  padding: 140px 80px;
+  .section-title {
+    .title img {
+      width: 100%;
+    }
+    .text {
+      bottom: 55px;
+    }
+    .desc {
+      &-top {
+        span {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
