@@ -79,4 +79,9 @@
     top: 0;
     left: 0;
   }
+
+  &-left {
+    pointer-events: none;
+    height: max-content;
+  }
 }
