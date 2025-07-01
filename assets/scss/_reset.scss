@@ -61,4 +61,7 @@ body {
   -moz-osx-font-smoothing: grayscale !important;
   background-color: var(--color-black);
   position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

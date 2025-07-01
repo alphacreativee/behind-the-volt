@@ -33,6 +33,16 @@
     </script>
   </head>
   <body>
+    <!-- progressbar-->
+    <script>
+      fetch("./components/progressbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("progress").innerHTML = data;
+        });
+    </script>
+    <div id="progress"></div>
+    <!-- end progressbar-->
     <!-- loading-->
     <script>
       fetch("./components/transition.html")
