@@ -1,0 +1,44 @@
+.pin-el {
+  &-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 84px 0;
+  }
+  &-headings {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  &-title {
+    transition: all 0.5s;
+    transform-origin: left;
+    &.active {
+      color: var(--color-primary);
+      font-size: 74px;
+      line-height: 66px;
+    }
+  }
+  &-img {
+    margin-bottom: 40px;
+    width: 100%;
+    aspect-ratio: 560 / 320;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video {
+      width: 100%;
+      aspect-ratio: 560 / 320;
+      source {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
