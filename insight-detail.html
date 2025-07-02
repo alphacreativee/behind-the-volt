@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insight Details</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/use/favicon-white.svg"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/fonts/power-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/space-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <!-- end link custom css page -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- progressbar-->
+    <script>
+      fetch("./components/progressbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("progress").innerHTML = data;
+        });
+    </script>
+    <div id="progress"></div>
+    <!-- end progressbar-->
+    <!-- particle -->
+    <script>
+      fetch("./components/particle.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("particle-effect").innerHTML = data;
+        });
+    </script>
+    <div id="particle-effect"></div>
+    <!-- end particle -->
+    <script>
+      fetch("./components/cursor.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("cursor").innerHTML = data;
+        });
+    </script>
+    <div id="cursor"></div>
+    <!-- layout -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(
+            ".header-menu-container ul li a"
+          );
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+            const cleanedPath = linkPath.substring(1);
+
+            if (
+              cleanedPath === currentPath ||
+              (currentPath === "/" && cleanedPath === "/")
+            ) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header"></header>
+    <main>
+      <section class="banner">
+        <div class="container-fluid p-0">
+          <div class="banner-container position-relative">
+            <div class="banner-triangle"></div>
+            <div class="banner-line"></div>
+            <div class="banner-word">
+              <img src="./assets/images/use/BTV.png" alt="" />
+            </div>
+            <!-- options img -->
+            <picture>
+              <img src="./assets/images/banner-project.png" alt="" />
+            </picture>
+            <!-- end options img -->
+            <!-- options video -->
+            <!-- <video
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              poster="./assets/images/banner.jpg"
+            >
+              <source src="./assets/images/use/video.mp4" type="video/mp4" />
+            </video> -->
+            <!-- end options video -->
+          </div>
+        </div>
+      </section>
+      <div class="spacing-14x"></div>
+      <section class="content-detail insight">
+        <div class="container-fluid p-0">
+          <div class="row g-0">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="content-detail-top">
+                <div class="content-detail-top-top">
+                  <h1 class="h1-font font-heading color-primary effect-heading">
+                    Digital Migration
+                  </h1>
+                  <p class="description b1-font color-white fw-extrabold">
+                    Are we still printing things we know will be thrown away?
+                  </p>
+                </div>
+                <div class="content-detail-top-bottom">
+                  <p class="b1-font color-white">
+                    I’ve been thinking a lot about how slowly live events have
+                    embraced digital surfaces—and why.
+                  </p>
+                  <p class="b1-font color-white">
+                    We all watched print media evolve. Newspapers, magazines,
+                    billboards - migrated to digital. It happened fast. But in
+                    the events world, that same shift stalled.
+                  </p>
+                  <p class="b1-font color-white">
+                    Why? At first, it was the usual suspects: cost,
+                    availability, reliability. But today?The only things holding
+                    us back are imagination and the willingness to innovate.
+                  </p>
+                  <p class="b1-font color-white">
+                    Look around: F1 has gone full digital with its podiums;
+                    Football and cricket stadiums are surrounded by LED ribbons;
+                    Even golf—once the stronghold of static signage and picket
+                    fences—is evolving with immersive surfaces and curated
+                    content trails.
+                  </p>
+                  <p class="b1-font color-white">
+                    But most events are still printing site maps that get
+                    updated the night before; are still mounting giant static
+                    images that go straight into a skip when the gates close;
+                    and are still spending money on things that don’t scale,
+                    can’t flex, and won’t return.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-0">
+            <div class="content-detail-clip-image">
+              <div class="img-wrapper">
+                <img src="./assets/images/project-2.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="row g-0">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="content-detail-center">
+                <div class="content-detail-center-content">
+                  <p class="b1-font color-white font-body">
+                    Here’s what digital surface migration unlocks:
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        <span> Sustainability</span> - No more waste from
+                        last-minute signage changes or reprints
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span> ROI </span> - Dynamic content means more sponsor
+                        impressions, real-time messaging, sellable time slots,
+                        and localisation.
+                      </p>
+                    </li>
+
+                    <li>
+                      <p>
+                        <span> Flexibility</span> – Change content instantly
+                        based on crowd flow, weather, game dynamics, or
+                        promotions.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>Fan engagement</span> – Real-time, relevant
+                        content keeps audiences informed, entertained, and
+                        immersed
+                      </p>
+                    </li>
+                  </ul>
+                  <p class="b1-font color-white font-body">
+                    Consulted, designed and delivered various proof of concept
+                    usages of digital surfaces, Ribbon LED, 1st Tee LED
+                    surround, Merchandise space LED.
+                  </p>
+                  <p class="b1-font color-white font-body">
+                    Led design and execution of shotgun start pyro, countdown
+                    moments, and live audience reveals
+                  </p>
+                  <p class="b1-font color-white font-body">
+                    But most events are still printing site maps that get
+                    updated the night before; are still mounting giant static
+                    images that go straight into a skip when the gates close;
+                    and are still spending money on things that don’t scale,
+                    can’t flex, and won’t return.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="spacing-18x"></div>
+    </main>
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script type="module" src="./assets/main/js/project.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js" defer></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->

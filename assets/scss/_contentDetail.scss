@@ -1,0 +1,106 @@
+.content-detail {
+  &-top {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-bottom: 64px;
+    &-top {
+      h1 {
+        margin-bottom: 24px;
+      }
+    }
+  }
+  &-table {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  &-clip-image {
+    .img-wrapper {
+      width: 100%;
+      aspect-ratio: 1440 / 820;
+      max-height: 100dvh;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.3);
+      }
+    }
+  }
+  &-center {
+    margin-bottom: 100px;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  &-two-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 80px;
+    gap: 40px;
+    margin-bottom: 100px;
+    .content-detail-col-img {
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      &:nth-child(2) {
+        margin-top: 64px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.2);
+      }
+    }
+  }
+  &-bottom {
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  &.insight {
+    .content-detail-top-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .content-detail-center {
+      margin-bottom: 0;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        li {
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            top: 10px;
+          }
+          p {
+            color: var(--color-white);
+            font-size: 16px;
+            line-height: 24px;
+            span {
+              color: var(--color-primary);
+              font-weight: 800;
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
