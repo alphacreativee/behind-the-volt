@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy</title>
+    <!-- import favicon -->
+    <link
+      rel="icon"
+      href="./assets/images/use/favicon-white.svg"
+      type="image/x-icon"
+    />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/fonts/power-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/fonts/space-grotesk/font.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <!-- end link custom css page -->
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- progressbar-->
+    <script>
+      fetch("./components/progressbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("progress").innerHTML = data;
+        });
+    </script>
+    <div id="progress"></div>
+    <!-- end progressbar-->
+    <!-- particle -->
+    <script>
+      fetch("./components/particle.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("particle-effect").innerHTML = data;
+        });
+    </script>
+    <div id="particle-effect"></div>
+    <!-- end particle -->
+    <script>
+      fetch("./components/cursor.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("cursor").innerHTML = data;
+        });
+    </script>
+    <div id="cursor"></div>
+    <!-- layout -->
+    <script>
+      fetch("./components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+          const currentPath = window.location.pathname || "/";
+
+          const navLinks = document.querySelectorAll(
+            ".header-menu-container ul li a"
+          );
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+            const cleanedPath = linkPath.substring(1);
+
+            if (
+              cleanedPath === currentPath ||
+              (currentPath === "/" && cleanedPath === "/")
+            ) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+    <header id="header"></header>
+    <main>
+      <section class="terms">
+        <div class="container-fluid p-0">
+          <div class="row g-0">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="terms-container">
+                <div class="terms-container-top">
+                  <h2
+                    class="terms-title font-heading color-primary effect-heading f48-56"
+                  >
+                    Privacy Policy
+                  </h2>
+                  <p class="terms-description b1-font color-white fw-bold">
+                    Welcome to the Performance54 Group's privacy policy.
+                  </p>
+                  <div class="b1-font color-white">
+                    Performance54 Limited (Company No. 09541377) and its group
+                    companies (“Performance54 Group”) respect your privacy and
+                    is committed to protecting your personal data. This privacy
+                    policy will inform you as to how we look after your personal
+                    data when you visit our website (regardless of where you
+                    visit it from) and tell you about your privacy rights and
+                    how the law protects you.
+                  </div>
+                </div>
+                <div class="terms-container-bottom">
+                  <h3>1. Important information and who we are</h3>
+                  <p>Purpose of this privacy policy</p>
+                  <p>
+                    This privacy policy aims to give you information on how
+                    Performance54 Group collects and processes your personal
+                    data through your use of this website and our provision of
+                    services.
+                  </p>
+                  <p>
+                    This website is not intended for children, and we do not It
+                    is important that you read this privacy policy together with
+                    any other privacy policy or fair processing policy we may
+                    provide on specific occasions when we are collecting or
+                    processing personal data about you so that you are fully
+                    aware of how and why we are using your data. This privacy
+                    policy supplements other notices and privacy policies and is
+                    not intended to override them. collect data relating to
+                    children.
+                  </p>
+                  <p>
+                    We have appointed a data protection officer (“DPO”) who is
+                    responsible for overseeing questions in relation to this
+                    privacy policy. If you have any questions about this privacy
+                    policy, including any requests to exercise your legal
+                    rights, please contact the DPO using the details set out
+                    below.
+                  </p>
+                  <p>Contact details</p>
+                  <p>
+                    If you have any questions about this privacy policy or our
+                    privacy practices, please contact our DPO in the following
+                    ways:
+                  </p>
+                  <p>Full name of legal entity: Performance54 Limited</p>
+                  <p>Email address: legal@weare54.com</p>
+                  <p>
+                    Postal address: 22 Worple Road, Wimbledon, London SW19 4DD
+                  </p>
+                  <p>
+                    You have the right to make a complaint at any time to the
+                    Information Commissioner's Office (ICO), the UK regulator
+                    for data protection issues (www.ico.org.uk). We would,
+                    however, appreciate the chance to deal with your concerns
+                    before you approach the ICO so please contact us in the
+                    first instance.
+                  </p>
+                  <h3>2. The data we collect about you</h3>
+                  <p>
+                    Personal data, or personal information, means any
+                    information about an individual from which that person can
+                    be identified. It does not include data where the identity
+                    has been removed (anonymous data).
+                  </p>
+                  <p>
+                    We may collect, use, store and transfer different kinds of
+                    personal data about you which we have grouped together as
+                    follows:
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        Identity Data includes first name, maiden name, last
+                        name, username or similar identifier, marital status,
+                        title, date of birth and gender.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Contact Data includes billing address, delivery address,
+                        email address and telephone numbers.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Financial Data includes bank account and payment card
+                        details.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Transaction Data includes details about payments to and
+                        from you and other details of products and services you
+                        have purchased from us.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Technical Data includes internet protocol (IP) address,
+                        your login data, browser type and version, time zone
+                        setting and location, browser plug-in types and
+                        versions, operating system and platform, and other
+                        technology on the devices you use to access this
+                        website.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Usage Data includes information about how you use our
+                        website, products and services.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Marketing and Communications Data includes your
+                        preferences in receiving marketing from us and our third
+                        parties and your communication preferences.
+                      </p>
+                    </li>
+                  </ul>
+                  <p>
+                    We may also collect, use and share Aggregated Data such as
+                    statistical or demographic data for any purpose. Aggregated
+                    Data could be derived from your personal data but is not
+                    considered personal data in law as this data will not
+                    directly or indirectly reveal your identity. For example, we
+                    may aggregate your Usage Data to calculate the percentage of
+                    users accessing a specific website feature. However, if we
+                    combine or connect Aggregated Data with your personal data
+                    so that it can directly or indirectly identify you, we treat
+                    the combined data as personal data which will be used in
+                    accordance with this privacy policy.
+                  </p>
+                  <h3>3. How is your personal data collected?</h3>
+                  <p>
+                    We use different methods to collect data from and about you
+                    including through:
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        Direct interactions. You may give us your Identity,
+                        Contact and Financial Data by filling in forms or by
+                        corresponding with us by post, phone, email or
+                        otherwise. This includes personal data you provide when
+                        you:
+                      </p>
+                    </li>
+                    <li>
+                      <p>apply for our products or services;</p>
+                    </li>
+                    <li>
+                      <p>request marketing to be sent to you;</p>
+                    </li>
+                    <li>
+                      <p>enter a competition, promotion or survey; or</p>
+                    </li>
+                    <li>
+                      <p>give us feedback or contact us.</p>
+                    </li>
+                    <li>
+                      <p>
+                        Automated technologies or interactions. As you interact
+                        with our website, we will automatically collect
+                        Technical Data about your equipment, browsing actions
+                        and patterns. We collect this personal data by using
+                        cookies and other similar technologies.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Third parties or publicly available sources. We will
+                        receive personal data about you from various third
+                        parties and public sources as set out below:
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="spacing-20x"></div>
+    </main>
+    <!-- footer -->
+    <script>
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <footer id="footer"></footer>
+    <!-- end footer -->
+    <!-- end layout -->
+
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/SplitText.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <!-- import custom js -->
+    <script type="module" src="./assets/main/js/project.min.js"></script>
+    <script type="module" src="./assets/main/js/script.min.js" defer></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>
+<!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->
