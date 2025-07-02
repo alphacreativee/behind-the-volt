@@ -66,4 +66,41 @@
       gap: 24px;
     }
   }
+  &.insight {
+    .content-detail-top-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .content-detail-center {
+      margin-bottom: 0;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        li {
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            top: 10px;
+          }
+          p {
+            color: var(--color-white);
+            font-size: 16px;
+            line-height: 24px;
+            span {
+              color: var(--color-primary);
+              font-weight: 800;
+              padding-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
