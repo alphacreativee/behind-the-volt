@@ -100,6 +100,15 @@
     </script>
     <header id="header"></header>
     <!-- end header -->
+    <div
+      id="btnModalHighlight"
+      data-cursor-text
+      data-bs-toggle="modal"
+      data-bs-target="#btvHighlight"
+      class="b1-font color-white"
+    >
+      BTV Highlights
+    </div>
     <main>
       <section class="banner">
         <div class="container-fluid p-0">
@@ -502,6 +511,39 @@
       </section>
       <div class="spacing-1x"></div>
     </main>
+
+    <div
+      class="modal fade"
+      id="btvHighlight"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          data-cursor-text
+        ></button>
+        <div class="modal-content">
+          <div class="modal-body">
+            <video
+              loop
+              muted
+              playsinline
+              preload="auto"
+              poster="./assets/images/banner.jpg"
+              controls
+            >
+              <source src="./assets/images/use/video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- footer -->
     <script>
       fetch("./components/footer.html")
