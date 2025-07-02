@@ -1,5 +1,14 @@
 footer {
   // background-color: var(--color-black);
+
+  a {
+    transition: all 0.4s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
   #footerLine {
     width: 100%;
     height: 40px;
@@ -86,6 +95,12 @@ footer {
         a {
           position: relative;
 
+          &:hover {
+            &::after {
+              background-color: var(--color-primary);
+            }
+          }
+
           &::after {
             content: "";
             width: 100%;
@@ -94,6 +109,7 @@ footer {
             left: 0;
             bottom: -2px;
             background-color: var(--color-white);
+            transition: all 0.4s ease;
           }
         }
       }
