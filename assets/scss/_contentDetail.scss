@@ -1,4 +1,64 @@
 .content-detail {
+  overflow: hidden;
+  position: relative;
+  padding: 140px 0 180px;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .section-bg {
+    height: 120%;
+
+    &::before {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 10%,
+        rgba(0, 0, 0, 0.3) 20%,
+        #000 30%,
+        rgba(0, 0, 0, 0.1) 40%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0.6) 70%,
+        rgba(0, 0, 0, 0.5) 80%,
+        #000 95%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    &::after {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 10%,
+        rgba(0, 0, 0, 0.8) 20%,
+        #000 30%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0.6) 70%,
+        rgba(0, 0, 0, 0.5) 80%,
+        #000 95%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+
   &-top {
     display: flex;
     flex-direction: column;
@@ -49,7 +109,7 @@
       aspect-ratio: 1;
       overflow: hidden;
       &:nth-child(2) {
-        margin-top: 64px;
+        // margin-top: 64px;
       }
       img {
         width: 100%;
