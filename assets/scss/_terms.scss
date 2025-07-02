@@ -1,0 +1,48 @@
+.terms {
+  padding-top: 40vh;
+  &-container {
+    &-top {
+      margin-bottom: 24px;
+    }
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      h3 {
+        font-size: 30px;
+        line-height: 48px;
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        font-weight: bold;
+      }
+      p {
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-white);
+        font-family: var(--font-body);
+      }
+      ul {
+        li {
+          padding-left: 20px;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--color-white);
+            top: 10px;
+            left: 5px;
+          }
+        }
+      }
+    }
+  }
+  &-title {
+    margin-bottom: 24px;
+  }
+  &-description {
+    margin-bottom: 48px;
+  }
+}
