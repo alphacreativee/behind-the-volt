@@ -189,36 +189,31 @@ html,
   top: -20%;
   left: 0;
   width: 100%;
-  height: 130%;
+  height: 120vh;
   z-index: -2;
   background-image: url("../../images/use/btv-bg.png");
   background-position: center;
   background-size: 100% auto;
   background-repeat: repeat-y;
-  animation: moveUpDown 10s linear infinite alternate;
-}
+  animation: moveUpDown 15s linear infinite alternate;
 
-main {
-  position: relative;
   &::before {
     content: "";
     position: absolute;
     top: -200px;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 50%;
     z-index: -1;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0) 176.82px,
-      rgb(0, 0, 0) 469.19px,
-      rgb(0, 0, 0) 605.5px,
-      rgba(0, 0, 0, 0) 731.23px,
-      rgb(0, 0, 0) 841.56px,
-      rgba(0, 0, 0, 0.8) 1409.29px,
-      rgb(0, 0, 0) 1730px
+      rgba(0, 0, 0, 0) 10%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0) 100%
     );
-    animation: moveUpDown 7s linear infinite alternate;
+    animation: moveUpDown 8s linear infinite alternate;
   }
 
   &::after {
@@ -227,20 +222,17 @@ main {
     bottom: 300px;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 50%;
     z-index: -1;
-    background: repeating-linear-gradient(
+    background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0) 0px,
-      rgba(0, 0, 0, 0) 176.82px,
-      rgb(0, 0, 0) 469.19px,
-      rgb(0, 0, 0) 605.5px,
-      rgba(0, 0, 0, 0) 731.23px,
-      rgb(0, 0, 0) 841.56px,
-      rgba(0, 0, 0, 0.8) 1409.29px,
-      rgb(0, 0, 0) 1730px
+      rgba(0, 0, 0, 0) 10%,
+      rgba(0, 0, 0, 0.3) 30%,
+      rgba(0, 0, 0, 0.8) 60%,
+      rgba(0, 0, 0, 0.6) 90%,
+      rgba(0, 0, 0, 0) 100%
     );
-    animation: moveUpDown 6s linear infinite alternate;
+    animation: moveUpDown 15s linear infinite alternate;
   }
 }
 
@@ -249,7 +241,7 @@ main {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(300px);
+    transform: translateY(200px);
   }
 }
 
