@@ -1,5 +1,21 @@
 .contact {
-  padding: 0 120px 0 80px;
+  padding: 200px 120px 200px 80px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../images/use/bg-contact.png");
+  background-size: cover;
+  background-position: bottom center;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
   &-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -25,10 +41,11 @@
     }
   }
   &-form {
-    background-color: #202329;
+    background-color: rgba($color: #202329, $alpha: 0.8);
     border-radius: 8px;
     padding: 24px;
     position: relative;
+    backdrop-filter: blur(5px);
     &:hover {
       &::before {
         opacity: 1;
@@ -45,8 +62,8 @@
       top: 0px;
       left: 0px;
       background: radial-gradient(
-        700px circle at var(--mouse-x) var(--mouse-y),
-        rgba(0, 255, 255, 0.1),
+        circle at var(--mouse-x) var(--mouse-y),
+        #00ffff1a,
         transparent 40%
       );
       z-index: 3;
