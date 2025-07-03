@@ -880,7 +880,7 @@ const init = () => {
   animateTextKaraoke();
   footer();
   bannerParallax();
-  // animationTextAuto();
+  animationTextAuto();
   magicCursor();
   header();
   ourService();
