@@ -69,7 +69,7 @@
           flex: 1;
           height: 640px;
           position: relative;
-          transition: all 0.5s ease;
+          transition: all 0.8s ease;
           clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 544px);
           will-change: clip-path;
           transform: translateZ(0);
@@ -160,16 +160,37 @@
         }
 
         &-item {
-          background-color: #1c1c1c;
           height: 460px;
           width: 100%;
           transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
-          overflow: hidden;
-          border: 2px solid transparent;
-          padding: 40px 40px 24px 56px;
-          position: relative;
           clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 391px);
+          overflow: hidden;
+          // border: 2px solid transparent;
+          position: relative;
+          margin: 2px;
           will-change: clip-path;
+          padding: 40px 40px 24px 56px;
+          background-color: #1c1c1c;
+
+          // .item-wrapper {
+          //   clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 391px);
+          //   width: 100%;
+          //   height: 100%;
+          //   position: relative;
+          //   z-index: 2;
+          //   overflow: hidden;
+          // }
+
+          // &::after {
+          //   content: "";
+          //   width: 100%;
+          //   height: 100%;
+          //   clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 391px);
+          //   background-color: red;
+          //   position: absolute;
+          //   top: 0;
+          //   left: 0;
+          // }
 
           &:hover {
             .icon {
