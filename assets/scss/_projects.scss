@@ -68,6 +68,8 @@
     opacity: 0;
     transform: translateY(40px);
     margin-bottom: 24px;
+    max-width: 700px;
+    width: 100%;
   }
   &-button {
     position: relative;

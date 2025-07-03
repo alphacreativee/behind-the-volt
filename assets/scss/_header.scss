@@ -40,16 +40,18 @@
         span {
           &:nth-child(1) {
             top: 0;
-            left: 0;
-            transform: rotate(41deg) scaleX(1.4);
+            left: 0.5px;
+            transform: rotate(42deg);
+            width: 20px;
           }
           &:nth-child(2) {
             width: 0;
           }
           &:nth-child(3) {
-            transform: rotate(-41deg) scaleX(1.4);
-            left: 0;
+            transform: rotate(-42deg);
+            left: 0.5px;
             bottom: 0;
+            width: 20px;
           }
         }
       }
@@ -58,7 +60,8 @@
       width: 15px;
       height: 15px;
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
+
       span {
         position: absolute;
         left: 0;
