@@ -42,8 +42,8 @@ function handlePageVisibilityAndFavicon() {
 
     const favicons = [
       `${hostname}/assets/images/use/favicon-black.svg`,
-      `${hostname}/assets/images/use/favicon-white.svg`,
       `${hostname}/assets/images/use/favicon-blue.svg`,
+      `${hostname}/assets/images/use/favicon-white.svg`,
     ];
     let faviconIndex = 0;
 
@@ -737,7 +737,7 @@ function effectImgParallaxAndMove() {
     });
     gsap.set(img, {
       yPercent: -15,
-      scale: 1.2,
+      scale: 1.35,
     });
 
     const tl1 = gsap.timeline({
@@ -766,6 +766,7 @@ function effectImgParallaxAndMove() {
     });
     tl2.to(img, {
       yPercent: 10,
+      scale: 1.2,
     });
   });
 }
