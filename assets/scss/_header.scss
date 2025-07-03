@@ -39,19 +39,15 @@
       .header-hambuger-container {
         span {
           &:nth-child(1) {
-            top: 0;
-            left: 0px;
-            transform: rotate(42deg);
-            width: 22px;
+            top: 7px;
+            transform: rotate(45deg);
           }
           &:nth-child(2) {
-            width: 0;
+            opacity: 0;
           }
           &:nth-child(3) {
-            transform: rotate(-42deg);
-            left: 0px;
-            bottom: 0;
-            width: 22px;
+            top: 7px;
+            transform: rotate(-45deg);
           }
         }
       }
@@ -70,17 +66,16 @@
         height: 2px;
         background-color: var(--color-primary);
         transition: all 0.4s;
+        display: block;
         &:nth-child(1) {
           top: 2px;
-          transform-origin: left top;
+          // transform-origin: left top;
         }
         &:nth-child(2) {
-          top: 50%;
-          transform: translateY(-50%);
+          top: 7px;
         }
         &:nth-child(3) {
-          bottom: 2px;
-          transform-origin: left bottom;
+          top: 12px;
         }
       }
     }
