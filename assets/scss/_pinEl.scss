@@ -1,7 +1,7 @@
 .pin-el {
   position: relative;
   overflow: hidden;
-
+  padding: 5px 80px 0;
   &::before {
     content: "";
     width: 100%;

@@ -21,7 +21,7 @@ function pinEl() {
         return "+=" + scrollDistance;
       },
       pin: true,
-      //   markers: true,
+      // markers: true,
       pinSpacing: false,
       onUpdate: (self) => {
         const progress = self.progress;
@@ -34,8 +34,8 @@ function pinEl() {
             title.classList.remove("active");
           }
         });
-      }
-    }
+      },
+    },
   });
 
   $(".pin-el .pin-el-description .pin-el-line").each(function () {
