@@ -62,6 +62,7 @@
   .about {
     &-wrapper {
       margin-bottom: 140px;
+      padding: 0 80px;
 
       .title {
         width: max-content;
@@ -94,6 +95,7 @@
 
     &-cards {
       padding-top: 0;
+      padding-left: 80px;
     }
   }
 }
