@@ -80,6 +80,17 @@ footer {
           border: 1px solid var(--color-white);
           width: max-content;
           height: 50px;
+          border-radius: unset;
+
+          span {
+            color: var(--color-white) !important;
+          }
+
+          .btn-rolling-text {
+            &::before {
+              color: var(--color-white) !important;
+            }
+          }
         }
       }
 
