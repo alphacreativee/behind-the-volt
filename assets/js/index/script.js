@@ -628,7 +628,8 @@ function bannerParallax() {
         // markers: true,
       },
       ease: "power3.out",
-      yPercent: -5
+      yPercent: -5,
+      scale: 1.1
     }
   );
 }
@@ -881,7 +882,7 @@ const init = () => {
   animateTextKaraoke();
   footer();
   bannerParallax();
-  // animationTextAuto();
+  animationTextAuto();
   magicCursor();
   header();
   ourService();
