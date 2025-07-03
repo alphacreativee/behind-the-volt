@@ -55,7 +55,6 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    gap: 24px;
     padding: 80px;
     background: linear-gradient(
       to bottom,
@@ -68,6 +67,9 @@
     position: relative;
     opacity: 0;
     transform: translateY(40px);
+    margin-bottom: 24px;
+    max-width: 700px;
+    width: 100%;
   }
   &-button {
     position: relative;
@@ -81,6 +83,9 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
+    span {
+      line-height: 1;
+    }
   }
   &-bottom {
     margin-top: 20px;
