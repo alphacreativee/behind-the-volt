@@ -765,6 +765,9 @@ function fadeTextFooter() {
 
 function modalVideoHighLight() {
   const btvModal = document.getElementById("btvHighlight");
+
+  if (!btvModal) return;
+
   const video = btvModal.querySelector("video");
 
   btvModal.addEventListener("shown.bs.modal", function () {
@@ -786,7 +789,7 @@ function modalVideoHighLight() {
   const btnHighlight = document.getElementById("btnModalHighlight");
   const footer = document.getElementById("footer");
 
-  if (btnHighlight && footer && typeof gsap !== "undefined") {
+  if (btnHighlight && footer) {
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({

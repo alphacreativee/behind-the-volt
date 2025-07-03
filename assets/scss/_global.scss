@@ -303,7 +303,7 @@ html,
   padding: 8px 15px 8px 35px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: 1px solid rgba($color: #00ffff, $alpha: 0.1);
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
 

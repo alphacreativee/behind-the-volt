@@ -123,6 +123,8 @@
           transition: all 0.4s;
           &.active {
             background-color: var(--color-primary);
+            pointer-events: none;
+
             span {
               color: var(--color-black);
             }

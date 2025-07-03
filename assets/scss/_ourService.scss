@@ -3,6 +3,10 @@
   position: relative;
   overflow: hidden;
 
+  &.home {
+    padding-bottom: 0;
+  }
+
   &::before {
     content: "";
     width: 100%;
