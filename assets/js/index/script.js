@@ -628,6 +628,7 @@ function bannerParallax() {
       },
       ease: "power3.out",
       yPercent: -5,
+      scale: 1.1,
     }
   );
 }
