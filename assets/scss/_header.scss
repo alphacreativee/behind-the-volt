@@ -2,10 +2,13 @@
   z-index: 99;
   &-container {
     padding: 24px 40px;
+    @media (max-width: 991px) {
+      padding: 24px 20px;
+    }
   }
   &.scrolled {
     .header-logo {
-      transform: translateY(20px);
+      transform: translateY(10px);
       transition: all 0.5s;
       svg {
         .char {
@@ -96,6 +99,11 @@
     visibility: hidden;
     transition: all 0.5s;
     clip-path: polygon(100% 0, 100% 0, 100% 80px, 100% 80px);
+    @media (max-width: 991px) {
+      right: 10px;
+      top: 10px;
+      max-width: calc(100% - 20px);
+    }
     &.active {
       visibility: visible;
       animation: slideRightToLeftThenDown 1s ease-out forwards;
