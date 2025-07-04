@@ -13,6 +13,12 @@
     left: 0;
   }
 
+  &.scenography {
+    &::before {
+      height: 400px;
+    }
+  }
+
   &::after {
     content: "";
     width: 100%;
