@@ -7,7 +7,10 @@
     height: calc(100vh);
     --size: 300px;
     --height-line: 2px;
-
+    @media (max-width: 991px) {
+      --size: 150px;
+      height: 80vh;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -81,6 +84,9 @@
     writing-mode: sideways-lr;
     height: calc(100vh - 28px);
     z-index: 1;
+    @media (max-width: 991px) {
+      height: calc(80vh - 28px);
+    }
     // mix-blend-mode: difference;
   }
 }

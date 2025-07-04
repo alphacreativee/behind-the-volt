@@ -2,7 +2,9 @@
   padding: 140px 80px;
   overflow: hidden;
   position: relative;
-
+  @media (max-width: 991px) {
+    padding: 100px 20px;
+  }
   &::before {
     content: "";
     width: 100%;

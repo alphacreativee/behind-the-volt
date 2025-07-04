@@ -287,6 +287,9 @@ html,
   z-index: 3;
   border-radius: 2px;
   // overflow: hidden;
+  @media (max-width: 991px) {
+    left: 10px;
+  }
 }
 .progress-bar {
   width: 100%;
