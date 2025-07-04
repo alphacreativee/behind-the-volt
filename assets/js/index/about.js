@@ -56,7 +56,7 @@ function sectionAbout() {
       });
     };
 
-    const scrollAmount = getScrollAmount() + 100;
+    const scrollAmount = getScrollAmount() + 160;
     updateSpacer(scrollAmount);
 
     const tween = createTween(about, scrollAmount);
@@ -221,6 +221,24 @@ function ourExpertise() {
       });
     });
   }
+
+  // fade in
+  const wrapper = document.querySelector(".expertise-wrapper");
+  gsap.from(wrapper.querySelectorAll(".expertise-item"), {
+    yPercent: 20,
+    opacity: 0,
+    ease: "power2.out",
+    stagger: {
+      each: 0.3,
+      from: "start"
+    },
+    scrollTrigger: {
+      trigger: wrapper,
+      start: "top 60%",
+      toggleActions: "play none none none"
+      // markers: true
+    }
+  });
 }
 
 const init = () => {
