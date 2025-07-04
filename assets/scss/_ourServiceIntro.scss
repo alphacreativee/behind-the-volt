@@ -2,7 +2,9 @@
   padding: 140px 0;
   position: relative;
   overflow: hidden;
-
+  @media (max-width: 991px) {
+    padding-bottom: 100px;
+  }
   &::before {
     content: "";
     width: 100%;
@@ -30,14 +32,23 @@
   }
 
   .section-title {
+    @media (max-width: 991px) {
+      padding: 0 24px;
+    }
     .title {
       max-width: 1054px;
+      @media (max-width: 991px) {
+        max-width: 100%;
+      }
     }
     .title img {
       width: 100%;
     }
     .text {
       bottom: 55px;
+      @media (max-width: 991px) {
+        bottom: 0;
+      }
     }
     .desc {
       &-top {
