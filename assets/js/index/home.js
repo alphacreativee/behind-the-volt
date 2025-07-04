@@ -216,9 +216,7 @@ function loadBTV() {
   });
   gsap.to("#btnModalHighlight", {
     xPercent: 0,
-
     autoAlpha: 1,
-
     delay: 1,
   });
 }
