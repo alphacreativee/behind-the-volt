@@ -10,7 +10,7 @@ function projectScroll() {
     const split = new SplitText(title, {
       type: "words, chars",
       charsClass: "char",
-      wordsClass: "word"
+      wordsClass: "word",
     });
     split.chars.forEach((char) => {
       char.innerHTML = `<span>${char.textContent}</span>`;
@@ -22,10 +22,10 @@ function projectScroll() {
 
   gsap.set(projectImgWrapper, {
     scale: 0.5,
-    borderRadius: "400px"
+    borderRadius: "400px",
   });
   gsap.set(projectImg, {
-    scale: 1.5
+    scale: 1.5,
   });
   function animateContentIn(titleChars, description, button) {
     gsap.to(titleChars, {
@@ -33,20 +33,20 @@ function projectScroll() {
       y: 0,
       skewX: "0deg",
       // stagger: 0.05,
-      opacity: 1
+      opacity: 1,
     });
     gsap.to(description, {
       y: 0,
       opacity: 1,
       duration: 0.75,
-      ease: "power4.out"
+      ease: "power4.out",
     });
     gsap.to(button, {
       y: 0,
       opacity: 1,
       duration: 0.75,
       delay: 0.1,
-      ease: "power4.out"
+      ease: "power4.out",
     });
   }
   function animateContentOut(titleChars, description, button) {
@@ -55,19 +55,19 @@ function projectScroll() {
       y: 10,
       willChange: "filter, transform",
       opacity: 0,
-      skewX: "-3deg"
+      skewX: "-3deg",
     });
     gsap.to(description, {
       y: "40px",
       opacity: 0,
       duration: 0.5,
-      ease: "power4.out"
+      ease: "power4.out",
     });
     gsap.to(button, {
       y: "40px",
       opacity: 0,
       duration: 0.5,
-      ease: "power4.out"
+      ease: "power4.out",
     });
   }
 
@@ -87,10 +87,10 @@ function projectScroll() {
 
       gsap.set(projectImgWrapper, {
         scale: imgScale,
-        borderRadius: borderRadius + "px"
+        borderRadius: borderRadius + "px",
       });
       gsap.set(projectImg, {
-        scale: innerImgScale
+        scale: innerImgScale,
       });
       if (progress >= 1 && !introProject.contentRevealed) {
         introProject.contentRevealed = true;
@@ -100,7 +100,7 @@ function projectScroll() {
         introProject.contentRevealed = false;
         animateContentOut(titleChars, description, button);
       }
-    }
+    },
   });
 
   projects.forEach((project, index) => {
@@ -111,7 +111,7 @@ function projectScroll() {
       end: isLastProject ? "+=100vh" : "top top",
       endTrigger: isLastProject ? null : projects[projects.length - 1],
       pin: true,
-      pinSpacing: isLastProject
+      pinSpacing: isLastProject,
     });
   });
   projects.forEach((project, index) => {
@@ -125,9 +125,9 @@ function projectScroll() {
           const progress = self.progress;
           gsap.set(projectWrapper, {
             scale: 1 - progress * 0.15,
-            opacity: 1 - progress
+            opacity: 1 - progress,
           });
-        }
+        },
       });
     }
   });
@@ -142,12 +142,12 @@ function projectScroll() {
         onUpdate: (self) => {
           const progress = self.progress;
           gsap.set(projectImg, {
-            scale: 2 - progress
+            scale: 2 - progress,
           });
           gsap.set(imgContainer, {
-            borderRadius: 50 - progress * 50 + "px"
+            borderRadius: 50 - progress * 50 + "px",
           });
-        }
+        },
       });
     }
   });
@@ -163,7 +163,7 @@ function projectScroll() {
       onEnter: () =>
         animateContentIn(projectTitleChars, projectDescription, projectButton),
       onLeaveBack: () =>
-        animateContentOut(projectTitleChars, projectDescription, projectButton)
+        animateContentOut(projectTitleChars, projectDescription, projectButton),
     });
   });
   ScrollTrigger.refresh();
@@ -195,8 +195,8 @@ function marquee() {
       duration: totalWidth / speed,
       ease: "none",
       modifiers: {
-        x: (x) => `${parseFloat(x) % totalWidth}px`
-      }
+        x: (x) => `${parseFloat(x) % totalWidth}px`,
+      },
     });
 
     // Hover events
@@ -204,10 +204,29 @@ function marquee() {
     container.addEventListener("mouseleave", () => tl.resume());
   });
 }
+function loadBTV() {
+  gsap.to(".banner-word", {
+    autoAlpha: 1,
+    duration: 1,
+    ease: "power3.out",
+    delay: 1,
+  });
+  gsap.set("#btnModalHighlight", {
+    xPercent: 50,
+  });
+  gsap.to("#btnModalHighlight", {
+    xPercent: 0,
+
+    autoAlpha: 1,
+
+    delay: 1,
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   projectScroll();
   marquee();
+  loadBTV();
 };
 preloadImages("img").then(() => {
   init();
