@@ -187,9 +187,12 @@ function initGlobe(places) {
 
   const isMobile = window.innerWidth <= 991;
 
-  const globeWidth = isMobile ? window.innerWidth : window.innerWidth * 0.7;
+  const globeSize = isMobile
+    ? Math.min(window.innerWidth, window.innerHeight)
+    : window.innerWidth * 0.7;
 
-  const globeHeight = isMobile ? window.innerHeight * 0.8 : window.innerHeight;
+  const globeWidth = isMobile ? globeSize : window.innerWidth * 0.7;
+  const globeHeight = isMobile ? globeSize : window.innerHeight;
 
   globe = Globe()(globeContainer)
     .globeImageUrl(
