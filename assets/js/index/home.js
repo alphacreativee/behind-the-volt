@@ -45,7 +45,7 @@ function projectScroll() {
       y: 0,
       opacity: 1,
       duration: 0.75,
-      delay: 0.1,
+      delay: 0.05,
       ease: "power4.out",
     });
   }
@@ -219,6 +219,40 @@ function loadBTV() {
     autoAlpha: 1,
     delay: 1,
   });
+  if (window.innerWidth < 991) {
+    const button = document.querySelector("#btnModalHighlight");
+
+    gsap.set(button, {
+      x: 0,
+      autoAlpha: 1,
+    });
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        if (self.direction === 1) {
+          // Cuộn xuống - ẩn button
+          gsap.to(button, {
+            x: 10,
+            autoAlpha: 0,
+
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        } else {
+          // Cuộn lên - hiện button
+          gsap.to(button, {
+            x: 0,
+            autoAlpha: 1,
+
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        }
+      },
+    });
+  }
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);

@@ -93,6 +93,9 @@ html,
 }
 .spacing-24x {
   height: 240px;
+  @media (max-width: 991px) {
+    height: 100px;
+  }
 }
 .btn-global {
   display: flex;
@@ -312,7 +315,9 @@ html,
   backdrop-filter: blur(10px);
   opacity: 0;
   visibility: hidden;
-
+  @media (max-width: 991px) {
+    right: 20px;
+  }
   &:hover {
     border-color: var(--color-primary);
   }
