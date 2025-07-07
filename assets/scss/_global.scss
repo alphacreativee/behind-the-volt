@@ -90,6 +90,9 @@ html,
 }
 .spacing-20x {
   height: 200px;
+  @media (max-width: 991px) {
+    height: 100px;
+  }
 }
 .spacing-24x {
   height: 240px;
@@ -250,6 +253,9 @@ html,
 
 .section-title {
   padding: 0 80px;
+  @media (max-width: 991px) {
+    padding: 0 20px;
+  }
   .title {
     width: max-content;
     max-width: 100%;
@@ -267,6 +273,9 @@ html,
       bottom: 80px;
       position: absolute;
       width: max-content;
+      @media (max-width: 991px) {
+        bottom: 30px;
+      }
     }
   }
 

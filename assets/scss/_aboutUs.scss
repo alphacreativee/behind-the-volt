@@ -63,7 +63,9 @@
     &-wrapper {
       margin-bottom: 140px;
       padding: 0 80px;
-
+      @media (max-width: 991px) {
+        padding: 0 20px;
+      }
       .title {
         width: max-content;
         max-width: 100%;
@@ -81,6 +83,9 @@
           bottom: 80px;
           position: absolute;
           width: max-content;
+          @media (max-width: 991px) {
+            bottom: 30px;
+          }
         }
       }
 
@@ -96,6 +101,9 @@
     &-cards {
       padding-top: 0;
       padding-left: 80px;
+      @media (max-width: 991px) {
+        padding-left: 20px;
+      }
     }
   }
 }

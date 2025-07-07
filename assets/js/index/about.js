@@ -17,10 +17,11 @@ function sectionAbout() {
     };
 
     const createTween = (element, scrollAmount) => {
+      const addSpacing = window.innerWidth < 991 ? 200 : 0;
       return gsap.to(element, {
-        x: -scrollAmount,
+        x: -scrollAmount + addSpacing,
         duration: 3,
-        ease: "none"
+        ease: "none",
       });
     };
 
@@ -46,13 +47,13 @@ function sectionAbout() {
         trigger: wrapper,
         start: "top 20%",
         end: `+=${scrollAmount}`,
-        pin: isDesktop,
+        pin: true,
         animation: tween,
         scrub: 1,
         pinSpacing: false,
         // invalidateOnRefresh: true,
-        id: `aboutScroll-${index}`
-        // markers: true
+        id: `aboutScroll-${index}`,
+        // markers: true,
       });
     };
 
@@ -72,14 +73,14 @@ function sectionAbout() {
       ease: "power2.out",
       stagger: {
         each: 0.3,
-        from: "start"
+        from: "start",
       },
       scrollTrigger: {
         trigger: wrapper,
         start: "top 60%",
-        toggleActions: "play none none none"
+        toggleActions: "play none none none",
         // markers: true
-      }
+      },
     });
 
     const images = wrapper.querySelectorAll(".about-cards .card-item img");
@@ -89,7 +90,7 @@ function sectionAbout() {
         img,
         {
           xPercent: -10,
-          ease: "none"
+          ease: "none",
         },
         {
           xPercent: 10,
@@ -98,9 +99,9 @@ function sectionAbout() {
             trigger: wrapper,
             start: "top 20%",
             end: `+=${scrollAmount}`,
-            scrub: true
+            scrub: true,
             // markers: true
-          }
+          },
         }
       );
     });
@@ -172,7 +173,7 @@ function ourExpertise() {
         activeNumberCount();
         hasCounted = true;
       }
-    }
+    },
   });
 
   $(".our-expertise .expertise-item .number").each(function () {
@@ -230,14 +231,14 @@ function ourExpertise() {
     ease: "power2.out",
     stagger: {
       each: 0.3,
-      from: "start"
+      from: "start",
     },
     scrollTrigger: {
       trigger: wrapper,
       start: "top 60%",
-      toggleActions: "play none none none"
+      toggleActions: "play none none none",
       // markers: true
-    }
+    },
   });
 }
 
