@@ -306,3 +306,38 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.dot-pattern {
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    .interactive-dot {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.dot-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.interactive-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+
+  transition: all 0.3s;
+  transform-origin: center;
+  will-change: transform, opacity;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.interactive-dot.moving {
+  transform: scale(1.5);
+}

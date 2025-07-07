@@ -878,12 +878,131 @@ function modalVideoHighLight() {
     });
   }
 }
+function moveDots() {
+  const dotPatternCards = document.querySelectorAll(".dot-pattern");
+
+  dotPatternCards.forEach((card) => {
+    const overlay = card.querySelector(".dot-overlay");
+    const dotSpacing = 12; // tăng khoảng cách để giảm số lượng dot
+    let dots = [];
+
+    // Ham tao dot grid
+    function createDots() {
+      overlay.innerHTML = "";
+      dots = [];
+
+      const rect = card.getBoundingClientRect();
+      for (let x = dotSpacing; x < rect.width; x += dotSpacing) {
+        for (let y = dotSpacing; y < rect.height; y += dotSpacing) {
+          const dot = document.createElement("div");
+          dot.className = "interactive-dot";
+
+          // Đặt vị trí ban đầu bằng transform translate
+          dot.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+          dot.style.opacity = "0.4";
+          overlay.appendChild(dot);
+
+          dots.push({
+            element: dot,
+            originalX: x,
+            originalY: y,
+            currentX: x,
+            currentY: y,
+          });
+        }
+      }
+    }
+
+    createDots();
+
+    let isHovering = false;
+    let mouseX = 0;
+    let mouseY = 0;
+    let animationFrameId;
+
+    function updateDots() {
+      dots.forEach((dot) => {
+        const dx = mouseX - dot.originalX;
+        const dy = mouseY - dot.originalY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 80) {
+          const force = Math.max(0, 1 - distance / 80);
+          const attraction = force * 15;
+
+          const angle = Math.atan2(dy, dx);
+          dot.currentX = dot.originalX + Math.cos(angle) * attraction;
+          dot.currentY = dot.originalY + Math.sin(angle) * attraction;
+          const scale = 1 + force * 1.5;
+          const opacity = 0.4 + force * 0.6;
+
+          // Dùng transform translate và scale để tránh layout, repaint nhiều
+          dot.element.style.transform = `translate(${dot.currentX}px, ${dot.currentY}px) scale(${scale})`;
+          dot.element.style.opacity = opacity;
+          dot.element.classList.add("moving");
+        } else {
+          dot.currentX = dot.originalX;
+          dot.currentY = dot.originalY;
+          dot.element.style.transform = `translate(${dot.originalX}px, ${dot.originalY}px) scale(1)`;
+          dot.element.style.opacity = "0.4";
+          dot.element.classList.remove("moving");
+        }
+      });
+      animationFrameId = null;
+    }
+
+    function handleMouseMove(e) {
+      const rect = card.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(updateDots);
+      }
+    }
+
+    card.addEventListener("mouseenter", () => {
+      isHovering = true;
+    });
+
+    card.addEventListener("mousemove", handleMouseMove);
+
+    card.addEventListener("mouseleave", () => {
+      isHovering = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      // Reset all dots về vị trí ban đầu
+      dots.forEach((dot) => {
+        dot.element.style.transform = `translate(${dot.originalX}px, ${dot.originalY}px) scale(1)`;
+        dot.element.style.opacity = "0.4";
+        dot.element.classList.remove("moving");
+        dot.currentX = dot.originalX;
+        dot.currentY = dot.originalY;
+      });
+    });
+
+    // debounce hàm resize để tránh gọi nhiều lần liên tục
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (!isHovering) {
+          createDots();
+        }
+      }, 200);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   bannerParallax();
 });
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  // moveDots();
   animationText();
   formCard();
   particleEffect();
