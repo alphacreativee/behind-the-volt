@@ -144,6 +144,9 @@
               border-radius: 50%;
               background-color: var(--color-primary);
               transition: all 0.5s;
+              @media (max-width: 991px) {
+                top: 14px;
+              }
             }
             &:hover {
               & > a {
@@ -192,6 +195,11 @@
               height: 0;
               transition: all 0.5s;
               margin-top: 0px;
+              @media (max-width: 991px) {
+                height: 200px;
+                clip-path: inset(0% 0% 0% 0%);
+                padding-top: 20px;
+              }
               &:hover {
                 padding-top: 20px;
                 height: 200px;
