@@ -523,23 +523,25 @@ function ourService() {
     const cardItem = this.querySelector(".card-item");
     cardItem.style.transform = "rotate(0)";
   }
+  if (window.innerWidth > 992) {
+    function consultancy() {
+      $(".consultancy .item").on("mouseenter", function () {
+        const item = $(this);
 
-  function consultancy() {
-    $(".consultancy .item").on("mouseenter", function () {
-      const item = $(this);
+        if (item.hasClass("active")) return;
 
-      if (item.hasClass("active")) return;
+        $(".consultancy .item").removeClass("active");
+        item.addClass("active");
 
-      $(".consultancy .item").removeClass("active");
-      item.addClass("active");
+        setTimeout(() => {
+          animationText();
+          // ScrollTrigger.refresh(true);
+        }, 500);
+      });
+    }
 
-      setTimeout(() => {
-        animationText();
-        // ScrollTrigger.refresh(true);
-      }, 500);
-    });
+    consultancy();
   }
-  consultancy();
 
   if ($(".our-services .card").length < 1) return;
 
