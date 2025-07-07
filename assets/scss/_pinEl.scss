@@ -2,6 +2,9 @@
   position: relative;
   overflow: hidden;
   padding: 5px 80px 0;
+  @media (max-width: 991px) {
+    padding: 5px 20px 0;
+  }
   &::before {
     content: "";
     width: 100%;
@@ -64,7 +67,10 @@
     position: relative;
     border-top: 2px solid var(--color-primary);
     padding: 140px 0;
-
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      padding: 100px 0;
+    }
     &::after {
       content: "";
       width: 10px;
@@ -95,6 +101,9 @@
     display: flex;
     flex-direction: column;
     gap: 84px 0;
+    @media (max-width: 991px) {
+      gap: 32px 0;
+    }
   }
   &-headings {
     display: flex;
@@ -104,6 +113,13 @@
   &-title {
     transition: all 0.5s;
     transform-origin: left;
+    &-mobile {
+      display: none;
+      @media (max-width: 991px) {
+        display: block;
+        margin-bottom: 40px;
+      }
+    }
     &.active {
       color: var(--color-primary);
       font-size: 74px;
@@ -117,6 +133,9 @@
     overflow: hidden;
     will-change: clip-path;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 calc(100% - 20%));
+    @media (max-width: 991px) {
+      margin-bottom: 24px;
+    }
     .img {
       width: 100%;
       height: 100%;
@@ -184,7 +203,9 @@
     padding: 140px 0;
     position: relative;
     border-top: 2px solid var(--color-primary);
-
+    @media (max-width: 991px) {
+      padding: 100px 0;
+    }
     &::after {
       content: "";
       width: 10px;

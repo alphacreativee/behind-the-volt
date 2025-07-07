@@ -184,8 +184,15 @@ function initGlobe(places) {
     console.error("Globe container has zero size or is not found");
     return;
   }
-  const globeWidth = window.innerWidth * 0.7; // Chiều rộng ban đầu (px)
-  const globeHeight = window.innerHeight; // Chiều cao ban đầu (px)
+
+  const isMobile = window.innerWidth <= 991;
+
+  const globeSize = isMobile
+    ? Math.min(window.innerWidth, window.innerHeight)
+    : window.innerWidth * 0.7;
+
+  const globeWidth = isMobile ? globeSize : window.innerWidth * 0.7;
+  const globeHeight = isMobile ? globeSize : window.innerHeight;
 
   globe = Globe()(globeContainer)
     .globeImageUrl(
