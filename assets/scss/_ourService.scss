@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
   @media (max-width: 991px) {
-    padding-top: 0;
+    padding: 100px 0;
   }
   &.home {
     padding-bottom: 0;
@@ -180,7 +180,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
-
+      @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 20px;
+      }
       .card {
         perspective: 1000px;
         transform-style: preserve-3d;
@@ -214,7 +218,9 @@
           will-change: clip-path;
           padding: 40px 40px 24px 56px;
           background-color: #1c1c1c;
-
+          @media (max-width: 991px) {
+            padding: 48px;
+          }
           // .item-wrapper {
           //   clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 391px);
           //   width: 100%;
@@ -272,7 +278,10 @@
           position: absolute;
           bottom: 24px;
           right: 40px;
-
+          @media (max-width: 991px) {
+            bottom: 48px;
+            right: 48px;
+          }
           &:hover {
             color: var(--color-primary);
           }
@@ -288,6 +297,10 @@
 
     &-slogan {
       margin-top: 140px;
+      @media (max-width: 991px) {
+        margin-top: 100px;
+        padding: 0 20px;
+      }
     }
   }
 
