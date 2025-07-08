@@ -39,6 +39,11 @@ body {
 .b24-40 {
   font-size: 24px;
   line-height: 40px;
+  @media (max-width: 991px) {
+    font-size: 20px !important;
+    line-height: 28px !important;
+    font-weight: 400 !important;
+  }
 }
 .btn-font {
   font-size: 16px;

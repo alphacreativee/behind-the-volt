@@ -92,6 +92,10 @@
     @media (max-width: 991px) {
       padding: 0 20px;
       gap: 24px;
+      .our-project-title {
+        font-size: 32px !important;
+        line-height: 40px !important;
+      }
     }
   }
   &-img {
