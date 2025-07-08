@@ -320,7 +320,7 @@ html,
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba($color: #00ffff, $alpha: 0.1);
-  transition: all 0.4s;
+  transition: border 0.4s ease;
   backdrop-filter: blur(10px);
   opacity: 0;
   visibility: hidden;
