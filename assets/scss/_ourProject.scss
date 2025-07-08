@@ -102,8 +102,10 @@
     width: 100%;
     aspect-ratio: 710 / 475;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 391px);
     @media (max-width: 991px) {
       margin-bottom: 48px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 75px 100%, 0 182px);
     }
     img {
       width: 100%;
