@@ -23,6 +23,9 @@
     flex-wrap: nowrap;
     min-width: fit-content;
     gap: 100px;
+    @media (max-width: 991px) {
+      gap: 48px;
+    }
   }
 
   &-item {
