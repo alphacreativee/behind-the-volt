@@ -435,6 +435,10 @@ html,
     max-width: calc(100% - 200px);
     height: max-content;
     margin: auto;
+
+    @media (max-width: 991px) {
+      max-width: calc(100% - 48px);
+    }
   }
 }
 

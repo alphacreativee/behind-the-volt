@@ -44,9 +44,9 @@ function handlePageVisibilityAndFavicon() {
     const hostname = window.location.origin;
 
     const favicons = [
-      `${hostname}/assets/images/use/favicon-black.svg`,
-      `${hostname}/assets/images/use/favicon-blue.svg`,
-      `${hostname}/assets/images/use/favicon-white.svg`
+      `${hostname}/wp-content/themes/btv/assets/images/use/favicon-black.svg`,
+      `${hostname}/wp-content/themes/btv/assets/images/use/favicon-blue.svg`,
+      `${hostname}/wp-content/themes/btv/assets/images/use/favicon-white.svg`
     ];
     let faviconIndex = 0;
 
@@ -60,7 +60,9 @@ function handlePageVisibilityAndFavicon() {
     clearInterval(faviconInterval);
     isBlinking = false;
     const hostname = window.location.origin;
-    changeFavicon(`${hostname}/assets/images/use/favicon-white.svg`);
+    changeFavicon(
+      `${hostname}/wp-content/themes/btv/assets/images/use/favicon-white.svg`
+    );
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
