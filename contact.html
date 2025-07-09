@@ -121,18 +121,18 @@
                     </div>
                   </div>
                   <div class="contact-right effect-description-auto">
-                    <div class="contact-form " >
+                    <div class="contact-form " id="contact-form">
                       <form action="">
                         <div class="input-container">
-                            <input type="text" id="yourname" name="yourname" placeholder=" "/>
-                          <label for="yourname" class="input-label b1-font"
+                            <input type="text" id="yourname" name="name" placeholder=" "/>
+                          <label for="name" class="input-label b1-font"
                             >Please enter your name.</label
                           >
                           
                         </div>
                         <div class="input-container">
-                        <input type="email" id="youremail" name="youremail"placeholder=" " />
-                          <label for="youremail" class="input-label b1-font"
+                        <input type="email" id="youremail" name="email"placeholder=" " />
+                          <label for="email" class="input-label b1-font"
                             >Please enter your email ID.</label
                           >
 
@@ -160,10 +160,10 @@
                                 <a href="./privacy-policy.html" class="color-white">Privacy Policy</a>
                               </span></label
                             >
-
+                              <div class="success-message" style="display: none;">Submit successfull !!!</div>
                           </div>
                         </div>
-                        <button class="btn-global " data-cursor-text>
+                        <button class="btn-global " type="submit" data-cursor-text disabled>
                             <div
                             class="btn-rolling-text font-body fw-bold btn-font"
                             data-replace="Send Message"

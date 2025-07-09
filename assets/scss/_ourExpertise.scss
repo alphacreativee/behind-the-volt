@@ -93,6 +93,36 @@
       position: relative;
       padding-bottom: 20px;
       padding-right: 8px;
+
+      &.item-different {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        .image {
+          width: 100%;
+          height: auto;
+          aspect-ratio: unset;
+          max-height: 85px;
+
+          img {
+            object-fit: contain;
+          }
+        }
+
+        .title {
+          margin-top: 12px;
+
+          @media (max-width: 991px) {
+            margin-top: 24px;
+          }
+        }
+
+        .content {
+          padding-left: 110px;
+        }
+      }
+
       @media (max-width: 991px) {
         padding-bottom: 40px;
         .content {
