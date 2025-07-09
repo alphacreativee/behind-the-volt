@@ -78,9 +78,10 @@
       border-radius: inherit;
       top: 0px;
       left: 0px;
+
       background: radial-gradient(
         circle at var(--mouse-x) var(--mouse-y),
-        #00ffff1a,
+        #00ffff4d,
         transparent 40%
       );
       z-index: 3;

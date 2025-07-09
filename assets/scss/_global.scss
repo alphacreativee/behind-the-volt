@@ -6,6 +6,9 @@
   z-index: 1061;
   opacity: 0;
   transition: opacity 0.2s ease;
+  @media (max-width: 991px) {
+    display: none;
+  }
   &.scale-in {
     .cursor {
       width: 40px;

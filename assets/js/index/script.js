@@ -366,6 +366,7 @@ function animation() {
 }
 
 function magicCursor() {
+  if (window.innerWidth < 991) return;
   var circle = document.querySelector(".magic-cursor");
   document.addEventListener("click", (e) => {
     circle.classList.add("scale-in");

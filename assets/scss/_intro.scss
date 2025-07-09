@@ -31,6 +31,9 @@
   }
   &-title {
     margin-bottom: 80px;
+    @media (max-width: 991px) {
+      margin-bottom: 32px;
+    }
   }
   &-description {
     max-width: 100%;
