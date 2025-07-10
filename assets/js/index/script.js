@@ -92,7 +92,8 @@ function footer() {
 
   ctx.moveTo(0, 5); // điểm bắt đầu
   ctx.lineTo(w * 0.17, 5); // ngang phải
-  ctx.lineTo(w * 0.19, 40); // gập xuống
+  // ctx.lineTo(w * 0.19, 40); // gập xuống
+  ctx.lineTo(w * 0.25, 40); // gập xuống
   ctx.lineTo(w, 40); // ngang tới cuối
 
   ctx.stroke();
@@ -1069,11 +1070,11 @@ function contactForm() {
         toggleSubmitButton();
 
         if (contactForm.find(".form-checked-container").length > 0) {
-          contactForm.find(".form-checked-container").hide();
+          // contactForm.find(".form-checked-container").hide();
           contactForm.find(".success-message").show();
 
           setTimeout(function () {
-            contactForm.find(".form-checked-container").show();
+            // contactForm.find(".form-checked-container").show();
             contactForm.find(".success-message").hide();
           }, 5000);
         }
@@ -1085,6 +1086,77 @@ function contactForm() {
       }
     });
   });
+}
+
+function getNewletter() {
+  $("#form-newletter").on("submit", function (e) {
+    e.preventDefault();
+
+    const thisForm = $(this);
+    const emailField = thisForm.find("input[type='email']");
+    const buttonSubmit = thisForm.find("button[type='submit']");
+    const messageBox = thisForm.siblings(".newsletter-message");
+
+    emailField.removeClass("error");
+    messageBox.removeClass("success error").text("").hide();
+
+    if (!emailField.length) {
+      console.error("Không tìm thấy input email trong form.");
+      return;
+    }
+
+    const email = emailField.val() ? emailField.val().trim() : "";
+
+    if (!email) {
+      emailField.addClass("error");
+      showNewsletterMessage(messageBox, "Please enter your email.", false);
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: ajaxUrl,
+      data: {
+        action: "btv_receive_newletter",
+        email: email
+      },
+      beforeSend: function () {
+        buttonSubmit.addClass("aloading");
+        messageBox.removeClass("success error").text("").hide();
+      },
+      success: function (res) {
+        buttonSubmit.removeClass("aloading");
+
+        if (res.status === true) {
+          thisForm[0].reset();
+          showNewsletterMessage(messageBox, res.message, true);
+        } else {
+          emailField.addClass("error");
+          showNewsletterMessage(messageBox, res.message, false);
+        }
+
+        // Ẩn message sau 5 giây (không dùng fade)
+        setTimeout(() => {
+          messageBox.hide();
+        }, 5000);
+      },
+      error: function () {
+        buttonSubmit.removeClass("aloading");
+        showNewsletterMessage(
+          messageBox,
+          "An error occurred. Please try again later.",
+          false
+        );
+      }
+    });
+  });
+
+  function showNewsletterMessage(el, message, isSuccess) {
+    el.removeClass("success error")
+      .addClass(isSuccess ? "success" : "error")
+      .text(message)
+      .show();
+  }
 }
 
 const init = () => {
@@ -1104,6 +1176,7 @@ const init = () => {
   fadeTextFooter();
   modalVideoHighLight();
   contactForm();
+  getNewletter();
   ScrollTrigger.refresh(true);
 };
 preloadImages("img").then(() => {

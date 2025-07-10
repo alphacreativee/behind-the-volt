@@ -117,12 +117,11 @@
   &-list {
     .row {
       overflow-x: hidden;
-      margin-bottom: 100px;
+      &:not(:first-child) {
+        margin-top: 100px;
+      }
       @media (max-width: 991px) {
         flex-direction: column-reverse;
-      }
-      &:last-child {
-        margin-bottom: 0;
       }
       &.flex-row-reverse {
         @media (max-width: 991px) {
