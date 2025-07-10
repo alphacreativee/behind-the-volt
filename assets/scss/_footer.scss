@@ -46,6 +46,16 @@ footer {
       }
     }
 
+    &-policy {
+      @media (max-width: 991px) {
+        width: 100%;
+
+        .menu {
+          justify-content: flex-start;
+        }
+      }
+    }
+
     &-wrapper {
       padding: 40px 80px 80px;
       @media (max-width: 991px) {
@@ -70,6 +80,10 @@ footer {
     }
 
     &-form {
+      @media (max-width: 991px) {
+        width: 100%;
+      }
+
       form {
         display: grid;
         gap: 16px;
@@ -196,14 +210,22 @@ footer {
         gap: 48px;
       }
     }
+
+    &-menu {
+      @media (max-width: 991px) {
+        width: 100%;
+      }
+    }
   }
 
   .menu {
     display: flex;
     gap: 32px;
     align-items: center;
+
     @media (max-width: 991px) {
       flex-wrap: wrap;
+      justify-content: flex-start;
       gap: 24px;
     }
   }

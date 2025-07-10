@@ -23,9 +23,8 @@
     flex-wrap: nowrap;
     min-width: fit-content;
     gap: 100px;
-
     @media (max-width: 991px) {
-      gap: 50px;
+      gap: 48px;
     }
   }
 
@@ -36,7 +35,7 @@
     will-change: transform;
     backface-visibility: hidden;
     img {
-      width: 100%;
+      width: auto;
       height: 100%;
       object-fit: contain;
     }
