@@ -124,7 +124,7 @@
     will-change: clip-path;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 60px 100%, 0 calc(100% - 80px));
 
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
       width: 266px;
     }
 

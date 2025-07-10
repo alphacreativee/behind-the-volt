@@ -92,8 +92,12 @@ function footer() {
 
   ctx.moveTo(0, 5); // điểm bắt đầu
   ctx.lineTo(w * 0.17, 5); // ngang phải
-  // ctx.lineTo(w * 0.19, 40); // gập xuống
-  ctx.lineTo(w * 0.25, 40); // gập xuống
+
+  if (window.innerWidth > 991) {
+    ctx.lineTo(w * 0.19, 40); // gập xuống
+  } else {
+    ctx.lineTo(w * 0.25, 40); // gập xuống
+  }
   ctx.lineTo(w, 40); // ngang tới cuối
 
   ctx.stroke();

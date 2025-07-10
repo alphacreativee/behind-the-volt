@@ -68,10 +68,18 @@
     margin-bottom: 64px;
     @media (max-width: 991px) {
       padding: 0 24px;
+      gap: 40px;
     }
     &-top {
       h1 {
         margin-bottom: 24px;
+      }
+    }
+    &-bottom-description {
+      p {
+        &:not(:first-child) {
+          margin-top: 24px;
+        }
       }
     }
   }
@@ -99,6 +107,7 @@
     margin-bottom: 100px;
     @media (max-width: 991px) {
       padding: 0 24px;
+      margin-bottom: 64px;
     }
     &-content {
       display: flex;

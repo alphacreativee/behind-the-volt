@@ -97,9 +97,17 @@
           clip-path: polygon(0 0, 100% 0, 100% 100%, 94.5px 100%, 0 544px);
           will-change: clip-path;
           transform: translateZ(0);
+
+          @media (max-width: 1024px) and (min-width: 768px) {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 80%);
+          }
+
           @media (max-width: 991px) {
             height: 520px;
             flex: unset;
+          }
+
+          @media (max-width: 767px) {
             clip-path: polygon(0 0, 100% 0, 100% 500px, 24% 500px, 0 400px);
           }
           &.active {
