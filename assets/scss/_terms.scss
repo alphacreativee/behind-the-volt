@@ -2,7 +2,9 @@
   padding-top: 350px;
   position: relative;
   overflow: hidden;
-
+  @media (max-width: 991px) {
+    padding: 200px 20px 0;
+  }
   .background {
     background-image: url("../../images/use/bg-contact.png");
     background-size: 100% auto;
