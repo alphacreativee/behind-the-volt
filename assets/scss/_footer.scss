@@ -48,7 +48,7 @@ footer {
     }
 
     &-policy {
-      @media (max-width: 991px) {
+      @media (max-width: 767px) {
         width: 100%;
 
         .menu {
@@ -81,7 +81,7 @@ footer {
     }
 
     &-form {
-      @media (max-width: 991px) {
+      @media (max-width: 767px) {
         width: 100%;
       }
 
@@ -172,6 +172,11 @@ footer {
       position: relative;
       @media (max-width: 991px) {
         margin-top: 48px;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding-top: 24px;
+      }
+      @media (max-width: 767px) {
         flex-direction: column;
         gap: 24px;
         padding-top: 24px;
@@ -206,13 +211,16 @@ footer {
       }
       .copyright,
       .footer-company {
-        @media (max-width: 991px) {
+        @media (max-width: 767px) {
           width: 100%;
         }
       }
     }
     &-top {
       @media (max-width: 991px) {
+        justify-content: space-between;
+      }
+      @media (max-width: 767px) {
         flex-direction: column;
         gap: 48px;
       }
