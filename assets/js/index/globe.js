@@ -6,8 +6,8 @@ const sampleData = {
         latitude: 55.3781,
         longitude: -3.436,
         pop_max: 67330000,
-        region: "uk",
-      },
+        region: "uk"
+      }
     },
     {
       properties: {
@@ -15,8 +15,8 @@ const sampleData = {
         latitude: 40.4637,
         longitude: -3.7492,
         pop_max: 47360000,
-        region: "spain",
-      },
+        region: "spain"
+      }
     },
     {
       properties: {
@@ -24,8 +24,8 @@ const sampleData = {
         latitude: 24.7136,
         longitude: 46.6753,
         pop_max: 34810000,
-        region: "ksa",
-      },
+        region: "ksa"
+      }
     },
     {
       properties: {
@@ -33,17 +33,17 @@ const sampleData = {
         latitude: 27.9944,
         longitude: -81.7603,
         pop_max: 21540000,
-        region: "usa-florida",
-      },
+        region: "usa-florida"
+      }
     },
     {
       properties: {
-        name: "VietNam",
+        name: "Vietnam",
         latitude: 14.0583,
         longitude: 108.2772,
         pop_max: 97470000,
-        region: "vietnam",
-      },
+        region: "vietnam"
+      }
     },
     {
       properties: {
@@ -51,8 +51,8 @@ const sampleData = {
         latitude: 25.2048,
         longitude: 55.2708,
         pop_max: 3500000,
-        region: "dubai",
-      },
+        region: "dubai"
+      }
     },
     {
       properties: {
@@ -60,8 +60,8 @@ const sampleData = {
         latitude: 24.4539,
         longitude: 54.3773,
         pop_max: 1500000,
-        region: "abu-dhabi",
-      },
+        region: "abu-dhabi"
+      }
     },
     {
       properties: {
@@ -69,8 +69,8 @@ const sampleData = {
         latitude: 1.3521,
         longitude: 103.8198,
         pop_max: 5700000,
-        region: "singapore",
-      },
+        region: "singapore"
+      }
     },
     {
       properties: {
@@ -78,8 +78,8 @@ const sampleData = {
         latitude: -35.2809,
         longitude: 149.13,
         pop_max: 26000000, // Dân số ước tính của Australia
-        region: "australia",
-      },
+        region: "australia"
+      }
     },
     {
       properties: {
@@ -87,10 +87,10 @@ const sampleData = {
         latitude: -25.7479,
         longitude: 28.2293,
         pop_max: 60000000, // Dân số ước tính của South Africa
-        region: "south-africa",
-      },
-    },
-  ],
+        region: "south-africa"
+      }
+    }
+  ]
 };
 
 let globe;
@@ -129,7 +129,7 @@ function resetView() {
     "filter-spain",
     "filter-ksa",
     "filter-usa-florida",
-    "filter-vietnam",
+    "filter-vietnam"
   ];
   regions.forEach((id) => {
     document.getElementById(id).checked = false;
@@ -155,7 +155,7 @@ function handleRegionChange(regionId, region) {
       "filter-dhabi",
       "filter-singapore",
       "filter-australia",
-      "filter-south-africa",
+      "filter-south-africa"
     ];
     allRegions.forEach((id) => {
       if (id !== regionId) {
@@ -269,7 +269,7 @@ function setupFilterEventListeners() {
     { id: "filter-dhabi", region: "abu-dhabi" },
     { id: "filter-singapore", region: "singapore" },
     { id: "filter-australia", region: "australia" },
-    { id: "filter-south-africa", region: "south-africa" },
+    { id: "filter-south-africa", region: "south-africa" }
   ];
 
   regionMappings.forEach(({ id, region }) => {

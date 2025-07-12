@@ -97,6 +97,7 @@
       will-change: clip-path;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 calc(100% - 25%));
       position: relative;
+      margin-top: 32px;
 
       img,
       video {
@@ -109,7 +110,6 @@
     }
 
     .title {
-      margin-top: 32px;
       font-weight: 700;
     }
 

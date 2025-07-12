@@ -1080,7 +1080,7 @@ function contactForm() {
           setTimeout(function () {
             // contactForm.find(".form-checked-container").show();
             contactForm.find(".success-message").hide();
-          }, 5000);
+          }, 8000);
         }
 
         buttonSubmit.removeClass("aloading");
@@ -1142,7 +1142,7 @@ function getNewletter() {
         // Ẩn message sau 5 giây (không dùng fade)
         setTimeout(() => {
           messageBox.hide();
-        }, 5000);
+        }, 8000);
       },
       error: function () {
         buttonSubmit.removeClass("aloading");
