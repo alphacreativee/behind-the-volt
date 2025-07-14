@@ -174,36 +174,44 @@ function marquee() {
     const items = [...container.querySelectorAll(".marquee-item")];
     const speed = parseFloat(container.getAttribute("data-speed")) || 50;
 
-    // Calculate total width of original content
-    let totalWidth = 0;
-    items.forEach((item) => (totalWidth += item.offsetWidth));
+    content.innerHTML = "";
+    items.forEach((item) => content.appendChild(item.cloneNode(true)));
 
-    // Create copies for seamless loop
+    const clonedItems = [...content.children];
+    let totalWidth = 0;
+
+    clonedItems.forEach((item) => (totalWidth += item.offsetWidth));
+
     const containerWidth = container.offsetWidth;
-    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 4;
+    const copiesNeeded = Math.ceil(containerWidth / totalWidth) + 2;
 
     for (let i = 0; i < copiesNeeded; i++) {
-      items.forEach((item) => {
+      clonedItems.forEach((item) => {
         content.appendChild(item.cloneNode(true));
       });
     }
 
+    let fullWidth = 0;
+    [...content.children].forEach((item) => (fullWidth += item.offsetWidth));
+
     gsap.set(content, { x: 0, willChange: "transform", force3D: true });
+
     const tl = gsap.timeline({ repeat: -1 });
     tl.to(content, {
-      x: -totalWidth,
-      duration: totalWidth / speed,
+      x: -fullWidth,
+      duration: fullWidth / speed,
       ease: "none",
       modifiers: {
-        x: (x) => `${parseFloat(x) % totalWidth}px`
+        x: (x) => `${parseFloat(x) % fullWidth}px`
       }
     });
 
-    // Hover events
+    // Hover pause
     container.addEventListener("mouseenter", () => tl.pause());
     container.addEventListener("mouseleave", () => tl.resume());
   });
 }
+
 function loadBTV() {
   gsap.to(".banner-word", {
     autoAlpha: 1,
