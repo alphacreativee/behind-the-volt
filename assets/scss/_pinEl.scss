@@ -206,6 +206,11 @@
     @media (max-width: 991px) {
       padding: 100px 0;
     }
+
+    .btn-global {
+      margin-top: 48px;
+    }
+
     &::after {
       content: "";
       width: 10px;
