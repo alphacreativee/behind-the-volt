@@ -1178,8 +1178,8 @@ function loadBTV() {
   });
   gsap.to("#btnModalHighlight", {
     xPercent: 0,
-    autoAlpha: 1,
-    delay: 0.3
+    autoAlpha: 1
+    // delay: 0.3
   });
   if (window.innerWidth < 991) {
     const button = document.querySelector("#btnModalHighlight");
@@ -1241,6 +1241,8 @@ function hideLoadingTransition() {
     const delay = 0.5 + index * 0.05;
 
     if (index >= total - 1) {
+      const triggerTime = delay + 0.15 + scaleYDuration - 1;
+
       tl.to(
         panel,
         {
@@ -1251,6 +1253,8 @@ function hideLoadingTransition() {
         },
         delay
       );
+
+      tl.add(() => loadBTV(), triggerTime);
     } else {
       tl.to(
         panel,
@@ -1274,8 +1278,6 @@ function hideLoadingTransition() {
   });
 
   tl.set("#loading-transition", { display: "none" });
-
-  tl.then(loadBTV);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
