@@ -1230,7 +1230,9 @@ function hideLoadingTransition() {
   tl.to(logo, {
     opacity: 0,
     duration: 0.8,
-    onComplete: () => logo.hide()
+    onComplete: () => {
+      logo.style.display = "none";
+    }
   });
 
   // Animate panels
