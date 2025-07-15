@@ -212,61 +212,10 @@ function marquee() {
   });
 }
 
-function loadBTV() {
-  gsap.to(".banner-word", {
-    autoAlpha: 1,
-    duration: 1,
-    ease: "power3.out",
-    delay: 1
-  });
-  gsap.set("#btnModalHighlight", {
-    xPercent: 50
-  });
-  gsap.to("#btnModalHighlight", {
-    xPercent: 0,
-    autoAlpha: 1,
-    delay: 1
-  });
-  if (window.innerWidth < 991) {
-    const button = document.querySelector("#btnModalHighlight");
-
-    gsap.set(button, {
-      x: 0,
-      autoAlpha: 1
-    });
-    ScrollTrigger.create({
-      trigger: "body",
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        if (self.direction === 1) {
-          // Cuộn xuống - ẩn button
-          gsap.to(button, {
-            x: 10,
-            autoAlpha: 0,
-
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        } else {
-          // Cuộn lên - hiện button
-          gsap.to(button, {
-            x: 0,
-            autoAlpha: 1,
-
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        }
-      }
-    });
-  }
-}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   projectScroll();
   marquee();
-  loadBTV();
 };
 preloadImages("img").then(() => {
   init();
