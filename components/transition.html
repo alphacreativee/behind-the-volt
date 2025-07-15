@@ -1,0 +1,61 @@
+<style>
+  #loading-transition .loader-panel {
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    transform-origin: center;
+    transform: scale(1);
+  }
+
+  #loading-transition .loading-wrapper {
+    display: flex;
+    height: 100vh;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+  }
+
+  #loading-transition .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: white;
+    z-index: 10000;
+    pointer-events: none;
+  }
+</style>
+
+<div id="loading-transition">
+  <div class="loading-wrapper">
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+    <div class="stagger loader-panel"></div>
+
+    <div class="logo">
+      <img src="../assets/images/use/logo-full.svg" alt="" />
+    </div>
+  </div>
+</div>

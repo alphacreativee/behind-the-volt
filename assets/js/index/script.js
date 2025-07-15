@@ -1163,6 +1163,46 @@ function getNewletter() {
   }
 }
 
+function hideLoadingTransition() {
+  const logo = document.querySelector("#loading-transition .logo");
+  const panels = document.querySelectorAll("#loading-transition .loader-panel");
+
+  const minDuration = 0.2;
+  const maxDuration = 1.5;
+  const total = panels.length;
+
+  const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+  tl.to(logo, {
+    opacity: 0,
+    duration: 0.6,
+    onComplete: () => logo.remove()
+  });
+
+  panels.forEach((panel, index) => {
+    const duration =
+      minDuration + (maxDuration - minDuration) * (index / (total - 1));
+    tl.to(
+      panel,
+      {
+        scaleX: 0,
+        scaleY: 0,
+        duration: duration,
+        transformOrigin: "center"
+      },
+      "0.4"
+    );
+  });
+
+  tl.set("#loading-transition", { display: "none" });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    hideLoadingTransition();
+  }, 500);
+});
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   // moveDots();
