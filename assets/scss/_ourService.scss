@@ -158,6 +158,11 @@
             opacity: 0;
             visibility: hidden;
             transition-delay: 0s;
+            @media (max-width: 1295px) and (min-width: 992px) {
+              width: calc(100% - 80px);
+              left: 40px;
+              right: 40px;
+            }
             @media (max-width: 991px) {
               left: 20px;
               right: 20px;
