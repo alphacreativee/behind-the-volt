@@ -1311,9 +1311,7 @@ const init = () => {
 preloadImages("img").then(() => {
   init();
 });
-$(window).on("beforeunload", function () {
-  $(window).scrollTop(0);
-});
+
 function updateProgressBar() {
   const progressBar = document.querySelector(".progress-bar");
   const totalHeight = document.body.scrollHeight - window.innerHeight;
@@ -1331,3 +1329,18 @@ function updateProgressBar() {
 updateProgressBar();
 window.addEventListener("scroll", updateProgressBar);
 window.addEventListener("resize", updateProgressBar);
+// loadpage
+let isLinkClicked = false;
+$("a").on("click", function (e) {
+  // Nếu liên kết dẫn đến trang khác (không phải hash link hoặc javascript void)
+  if (this.href && !this.href.match(/^#/) && !this.href.match(/^javascript:/)) {
+    isLinkClicked = true;
+  }
+});
+
+$(window).on("beforeunload", function () {
+  if (!isLinkClicked) {
+    $(window).scrollTop(0);
+  }
+  isLinkClicked = false;
+});
