@@ -5,7 +5,7 @@ function clipMaskImage() {
   gsap.fromTo(
     ".content-detail-clip-image .img-wrapper",
     {
-      clipPath: "inset(0% 0% 0% 0%)"
+      clipPath: "inset(0% 0% 0% 0%)",
     },
     {
       clipPath: () => {
@@ -33,26 +33,26 @@ function clipMaskImage() {
         trigger: ".content-detail-clip-image ",
         start: "top 70%",
         end: "bottom 70%",
-        scrub: 1
-      }
+        scrub: 1,
+      },
     }
   );
   gsap.fromTo(
     ".content-detail-clip-image .img-wrapper img",
     {
-      yPercent: -10
+      yPercent: -10,
     },
     {
       scrollTrigger: {
         trigger: ".content-detail-clip-image",
         start: "top 30%",
         end: "bottom 30%",
-        scrub: 1
+        scrub: 1,
         // markers: true,
       },
       yPercent: 10,
       duration: 0.4,
-      ease: "power3.out"
+      ease: "power3.out",
     }
   );
 }
@@ -62,35 +62,35 @@ function twoParallaxImage() {
   gsap.fromTo(
     ".content-detail-two-image > .content-detail-col-img:nth-child(1) img",
     {
-      yPercent: -10 // Bắt đầu cao hơn
+      yPercent: -10, // Bắt đầu cao hơn
     },
     {
       scrollTrigger: {
         trigger: ".content-detail-two-image",
         start: "top bottom",
         end: "bottom top",
-        scrub: 1
+        scrub: 1,
         // markers: true,
       },
       yPercent: 10, // Kết thúc thấp hơn - di chuyển xuống chậm
-      ease: "none"
+      ease: "none",
     }
   );
 
   gsap.fromTo(
     ".content-detail-two-image > .content-detail-col-img:nth-child(2) img",
     {
-      yPercent: 10
+      yPercent: 10,
     },
     {
       scrollTrigger: {
         trigger: ".content-detail-two-image",
         start: "top bottom",
         end: "bottom top",
-        scrub: 1
+        scrub: 1,
       },
       yPercent: -10,
-      ease: "none"
+      ease: "none",
     }
   );
 }
@@ -101,6 +101,18 @@ const init = () => {
 preloadImages("img").then(() => {
   init();
 });
+let isLinkClicked = false;
+$("a").on("click", function (e) {
+  // Nếu liên kết dẫn đến trang khác (không phải hash link hoặc javascript void)
+  if (this.href && !this.href.match(/^#/) && !this.href.match(/^javascript:/)) {
+    isLinkClicked = true;
+    console.log("1");
+  }
+});
+
 $(window).on("beforeunload", function () {
-  $(window).scrollTop(0);
+  if (!isLinkClicked) {
+    $(window).scrollTop(0);
+  }
+  isLinkClicked = false;
 });
