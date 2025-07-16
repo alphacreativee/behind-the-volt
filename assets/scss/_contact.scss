@@ -6,6 +6,11 @@
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
+  &-title {
+    span {
+      white-space: nowrap;
+    }
+  }
   &-left,
   &-right {
     @media (max-width: 991px) {

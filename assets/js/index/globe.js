@@ -29,7 +29,7 @@ const sampleData = {
     },
     {
       properties: {
-        name: "USA - Florida",
+        name: "USA: Florida",
         latitude: 27.9944,
         longitude: -81.7603,
         pop_max: 21540000,
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(() => {
     if (globe) {
-      moveToRegion("uk");
+      moveToRegion("ksa");
       document.getElementById("filter-uk").checked = true;
     }
   }, 1000); // Wait 1 second for globe to fully initialize
