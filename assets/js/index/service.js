@@ -58,8 +58,8 @@ function pinEl() {
             title.classList.remove("active");
           }
         });
-      },
-    },
+      }
+    }
   });
 }
 
@@ -98,7 +98,4 @@ const init = () => {
 };
 preloadImages("img").then(() => {
   init();
-});
-$(window).on("beforeunload", function () {
-  $(window).scrollTop(0);
 });

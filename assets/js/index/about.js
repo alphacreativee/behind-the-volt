@@ -21,7 +21,7 @@ function sectionAbout() {
       return gsap.to(element, {
         x: -scrollAmount + addSpacing,
         duration: 3,
-        ease: "none",
+        ease: "none"
       });
     };
 
@@ -52,7 +52,7 @@ function sectionAbout() {
         scrub: 1,
         pinSpacing: false,
         // invalidateOnRefresh: true,
-        id: `aboutScroll-${index}`,
+        id: `aboutScroll-${index}`
         // markers: true,
       });
     };
@@ -73,14 +73,14 @@ function sectionAbout() {
       ease: "power2.out",
       stagger: {
         each: 0.3,
-        from: "start",
+        from: "start"
       },
       scrollTrigger: {
         trigger: wrapper,
         start: "top 60%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none none"
         // markers: true
-      },
+      }
     });
 
     const images = wrapper.querySelectorAll(".about-cards .card-item img");
@@ -90,7 +90,7 @@ function sectionAbout() {
         img,
         {
           xPercent: -10,
-          ease: "none",
+          ease: "none"
         },
         {
           xPercent: 10,
@@ -99,9 +99,9 @@ function sectionAbout() {
             trigger: wrapper,
             start: "top 20%",
             end: `+=${scrollAmount}`,
-            scrub: true,
+            scrub: true
             // markers: true
-          },
+          }
         }
       );
     });
@@ -173,7 +173,7 @@ function ourExpertise() {
         activeNumberCount();
         hasCounted = true;
       }
-    },
+    }
   });
 
   $(".our-expertise .expertise-item .number").each(function () {
@@ -231,14 +231,14 @@ function ourExpertise() {
     ease: "power2.out",
     stagger: {
       each: 0.3,
-      from: "start",
+      from: "start"
     },
     scrollTrigger: {
       trigger: wrapper,
       start: "top 60%",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true
-    },
+    }
   });
 }
 
@@ -251,7 +251,4 @@ const init = () => {
 };
 preloadImages("img").then(() => {
   init();
-});
-$(window).on("beforeunload", function () {
-  $(window).scrollTop(0);
 });
