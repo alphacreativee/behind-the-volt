@@ -21,8 +21,8 @@ function projectScroll() {
   const projectImg = introProject.querySelector(".project-img img");
 
   gsap.set(projectImgWrapper, {
-    scale: 0.5,
-    borderRadius: "400px"
+    scale: 0.5
+    // borderRadius: "400px"
   });
   gsap.set(projectImg, {
     scale: 1.5
@@ -86,8 +86,8 @@ function projectScroll() {
       const innerImgScale = 1.5 - progress * 0.5;
 
       gsap.set(projectImgWrapper, {
-        scale: imgScale,
-        borderRadius: borderRadius + "px"
+        scale: imgScale
+        // borderRadius: borderRadius + "px"
       });
       gsap.set(projectImg, {
         scale: innerImgScale
@@ -145,7 +145,7 @@ function projectScroll() {
             scale: 2 - progress
           });
           gsap.set(imgContainer, {
-            borderRadius: 50 - progress * 50 + "px"
+            // borderRadius: 50 - progress * 50 + "px"
           });
         }
       });

@@ -1218,74 +1218,26 @@ function loadBTV() {
 }
 
 function hideLoadingTransition() {
-  const logo = document.querySelector("#loading-transition .logo");
-  const panels = document.querySelectorAll("#loading-transition .loader-panel");
+  const tl = gsap.timeline(); // Đảm bảo timeline được tạo
 
-  const minDuration = 0.8;
-  const maxDuration = 2.0;
-  const total = panels.length;
-
-  const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-
-  tl.to(logo, {
-    opacity: 0,
-    duration: 0.8,
-    onComplete: () => {
-      logo.style.display = "none";
+  tl.fromTo(
+    "#loading-transition",
+    { clipPath: "inset(0% 0% 0% 0%)" },
+    {
+      clipPath: "inset(0% 0% 100% 0%)",
+      duration: 2, // thêm duration nếu cần
+      ease: "power2.inOut", // tuỳ chọn easing
+      onComplete: () => {
+        document.getElementById("loading-transition").classList.add("d-none");
+      }
     }
-  });
-
-  // Animate panels
-  panels.forEach((panel, index) => {
-    const scaleYDuration =
-      minDuration + (maxDuration - minDuration) * (index / (total - 1));
-    const scaleXDuration = 0.8;
-    const delay = 0.5 + index * 0.05;
-
-    if (index >= total - 1) {
-      const triggerTime = delay + 0.15 + scaleYDuration - 1;
-
-      tl.to(
-        panel,
-        {
-          scaleX: 0,
-          opacity: 0.7,
-          duration: scaleXDuration,
-          transformOrigin: "center"
-        },
-        delay
-      );
-
-      tl.add(() => loadBTV(), triggerTime);
-    } else {
-      tl.to(
-        panel,
-        {
-          scaleX: 0,
-          opacity: 0.7,
-          duration: scaleXDuration,
-          transformOrigin: "center"
-        },
-        delay
-      ).to(
-        panel,
-        {
-          scaleY: 0,
-          duration: scaleYDuration,
-          transformOrigin: "center"
-        },
-        delay + 0.15
-      );
-    }
-  });
-
-  tl.set("#loading-transition", { display: "none" });
+  );
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     hideLoadingTransition();
-  }, 500);
+  }, 2000);
 });
 
 const init = () => {
