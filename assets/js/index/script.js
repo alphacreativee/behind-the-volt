@@ -1164,56 +1164,59 @@ function getNewletter() {
 }
 
 function loadBTV() {
-  if ($(".banner-word").length < 1 && $("#btnModalHighlight").length < 1)
-    return;
+  if ($(".banner-word").length) {
+    gsap.to(".banner-word", {
+      autoAlpha: 1,
+      duration: 1,
+      ease: "power3.out"
+      // delay: 1
+    });
+  }
 
-  gsap.to(".banner-word", {
-    autoAlpha: 1,
-    duration: 1,
-    ease: "power3.out"
-    // delay: 1
-  });
-  gsap.set("#btnModalHighlight", {
-    xPercent: 50
-  });
-  gsap.to("#btnModalHighlight", {
-    xPercent: 0,
-    autoAlpha: 1
-    // delay: 0.3
-  });
-  if (window.innerWidth < 991) {
-    const button = document.querySelector("#btnModalHighlight");
-
-    gsap.set(button, {
-      x: 0,
+  if ($("#btnModalHighlight").length) {
+    gsap.set("#btnModalHighlight", {
+      xPercent: 50
+    });
+    gsap.to("#btnModalHighlight", {
+      xPercent: 0,
       autoAlpha: 1
+      // delay: 0.3
     });
-    ScrollTrigger.create({
-      trigger: "body",
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        if (self.direction === 1) {
-          // Cuộn xuống - ẩn button
-          gsap.to(button, {
-            x: 10,
-            autoAlpha: 0,
 
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        } else {
-          // Cuộn lên - hiện button
-          gsap.to(button, {
-            x: 0,
-            autoAlpha: 1,
+    if (window.innerWidth < 991) {
+      const button = document.querySelector("#btnModalHighlight");
 
-            duration: 0.3,
-            ease: "power2.out"
-          });
+      gsap.set(button, {
+        x: 0,
+        autoAlpha: 1
+      });
+      ScrollTrigger.create({
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          if (self.direction === 1) {
+            // Cuộn xuống - ẩn button
+            gsap.to(button, {
+              x: 10,
+              autoAlpha: 0,
+
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          } else {
+            // Cuộn lên - hiện button
+            gsap.to(button, {
+              x: 0,
+              autoAlpha: 1,
+
+              duration: 0.3,
+              ease: "power2.out"
+            });
+          }
         }
-      }
-    });
+      });
+    }
   }
 }
 
@@ -1225,10 +1228,12 @@ function hideLoadingTransition() {
     { clipPath: "inset(0% 0% 0% 0%)" },
     {
       clipPath: "inset(0% 0% 100% 0%)",
-      duration: 2, // thêm duration nếu cần
-      ease: "power2.inOut", // tuỳ chọn easing
+      duration: 2,
+      ease: "power2.inOut",
       onComplete: () => {
         document.getElementById("loading-transition").classList.add("d-none");
+
+        loadBTV();
       }
     }
   );
